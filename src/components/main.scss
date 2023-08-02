@@ -1,0 +1,318 @@
+:root{
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+    --blueColor: rgb(0, 123, 255);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(200, 33%, 16%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDeam: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+    --cardHover: rgb(255, 255, 255);
+  }
+
+  .main{
+    width: 100%;
+    
+    .secTitle{
+      .title{
+        position: relative;
+        width: max-content;
+        // color: var(--textColor);
+        margin: 1rem 0;
+        z-index: 2;
+
+        // &::after{
+        //   position: absolute;
+        //   content: '';
+        //   background: var(--SecondaryColor);
+        //   height: 5px;
+        //   width: 120px;
+        //   right: 0;
+        //   bottom: 5px;
+        //   z-index: -1;
+        // }
+      }
+    }
+  
+  .secContent{
+    justify-content: stretch;
+    gap: 1.5rem;
+
+    .singleDestination{
+      height: 100%;
+      display: grid;
+      row-gap: 2px;
+      border-radius: 10px;
+      align-items: center;
+      background: var(--cardBG);
+      box-shadow: 0 2px 4px rgb(140, 140, 141, 0.549);
+      overflow: hidden;
+      align-content: space-between;
+      
+      &:hover{
+        background: var(--cardHover);
+        box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+        transition: .3s ease;
+      }
+    }
+
+    .imageDiv{
+      height: 180px;
+      width: 100%;
+      overflow: hidden;
+
+      .img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        transition: 2s ease;
+      }
+      &:hover{
+        img{
+          transform: scale(1.1);
+        }
+      }
+    }
+    .cardInfo{
+      padding: 1rem;
+      
+      .desTitle{
+        color: var(--blackColor);
+        font-size: 1.25rem;
+      }
+
+      .continent{
+        gap: 0.2rem;
+
+        .icon{
+          color: var(--textColor);
+          font-size: 18px;
+        }
+
+        .name{
+          color: var(--textColor);
+          font-weight: 500;
+          font-size: 12px;
+        }
+      }
+
+    .fees{
+      width: 100%;
+      justify-content: space-between;
+      padding: 1rem;
+      margin: 1rem 0;
+      gap: 0.5rem; // space between activity and price
+      border-top: 1.5px solid var(--greyText);
+      border-bottom: 1.5px solid var(--greyText);
+
+      .grade{
+        color: var(--textColor);
+        max-width: 100px;
+        line-height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+      //   small{
+      //     text-align: center;
+      //     background: var(--gradientColor);
+      //     border-radius: 1rem;
+      //     color: var(--whiteColor);
+      //     padding: 1px 10px;
+      //     font-size: 10px;
+      //   }
+      }
+
+      .price{
+        font-size: 2rem;
+        color: var(--blackColor);
+
+        small{
+          font-weight: 500;
+          font-size: 10px;
+          display: block;
+        }
+      }
+    }
+
+    .desc{
+      font-size: 13.5px;
+      color: var(--textColor);
+      font-weight: 500;
+
+      .duration{
+        gap: 0.5rem;
+
+        .name{
+          margin-bottom: -5px;
+        }
+      }
+
+      .date{
+        gap: 0.5rem;
+
+        .name{
+          margin-bottom: -5px;
+        }
+      }
+
+      .place{
+        gap: 0.5rem;
+        
+        .name{
+          margin-bottom: -5px;
+        }
+      }
+
+      .rate{
+        gap: 0.5rem;
+
+        .name{
+          margin-bottom: -5px;
+        }
+      }
+
+      .rateperperson{
+        gap: 0.5rem;
+        margin: 0 38px;
+        display: grid;
+        // flex-wrap: wrap;
+        padding-top: 4px;
+      }
+
+    }
+
+    .btn{
+      margin-top: 1rem;
+      color: var(--whiteColor);
+      font-weight: 600;
+      justify-content: space-between;
+      gap: .5rem;
+
+      .icon{
+        align-self: center;
+        font-size: 18px;
+      }
+    }
+
+
+    }
+  }
+
+  // .viewAll {
+  //   display: flex;
+  //   justify-content: center; 
+  //   margin-top: 1rem;
+    
+    .viewbtn {
+      // display: flex;
+      // margin-top: 1rem;
+      // margin: 1rem auto auto 100px;
+      display: flex;
+      justify-content: center; 
+      margin: 1.5rem auto;
+      font-weight: 500;
+      // justify-content: space-between;
+      position: relative;
+      height: 40px;
+      // left: 35%;
+      padding: 0px 20px;
+      border-radius: 0.25rem;
+      color: #656565;
+      font-size: 0.850rem;
+      border: none;
+      cursor: pointer;
+
+      &:hover{
+        a{
+            color: #0062cc;
+        }
+    } 
+    }
+  // }
+}
+
+
+// Media queries
+
+@media screen and (min-width: 375px) {
+  .title{
+    font-size: 1.3rem;
+    &::after{
+      width: 155px !important;
+    }
+  }
+
+  .viewbtn{
+    margin: auto;
+  }
+
+  small{
+    font-weight: 500 !important;
+    font-size: 11px !important;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 430px) {
+  .title{
+    font-size: 1.3rem;
+    &::after{
+      width: 160px !important;
+    }
+  }
+  .secContent{
+
+    .singleDestination{
+      height: auto;
+      width: 100% !important;
+    }
+  }
+}
+
+@media screen and (min-width: 550px) {
+  .title{
+    font-size: 1.3rem;
+    &::after{
+      width: 165px !important;
+    }
+  }
+
+  .secContent{
+    // grid-template-columns: repeat(2,1fr);
+    .singleDestination{
+      height: auto;
+      width: 95% !important;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .secContent{
+    grid-template-columns: repeat(2,1fr);
+
+    .singleDestination{
+      height: auto;
+      width: 102% !important;
+    }
+
+  }
+}
+
+@media screen and (min-width: 1110px) {
+  .secContent{
+    grid-template-columns: repeat(4,1fr);
+
+    .singleDestination{
+      height: auto;
+    }
+
+  }
+}
+
+

@@ -1,0 +1,102 @@
+/* CSS */
+.fadeInAnimation {
+  animation-name: flyIn;
+  animation-duration: 5s; /* Set the duration of the animation */
+  animation-fill-mode: forwards; /* After the animation ends, keep the styles applied */
+}
+.crduser{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(246, 225, 195);
+  text-align: center;
+  cursor: pointer;
+}
+.crduser:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+.crdlocal{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(234, 84, 85);
+  text-align: center;
+  cursor: pointer;
+}
+.crdlocal:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+.crdnational{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(25, 167, 206);
+  text-align: center;
+  cursor: pointer;
+}
+.crdnational:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+.crdinter{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(231, 171, 154);
+  text-align: center;
+  cursor: pointer;
+}
+.crdinter:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+.crdand{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(25, 167, 206);
+  text-align: center;
+  cursor: pointer;
+}
+.crdand:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+.crdres{
+  color: black;
+  width: 100%;
+  max-width: 400px;
+  margin: 0px auto 20px;
+  background-color: rgb(231, 171, 154);
+  text-align: center;
+  cursor: pointer;
+}
+.crdres:hover{
+  transform: scale(1.05); /* Increase the size on hover */
+  transition: transform 0.2s ease-in-out; /* Add a smooth transition */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+}
+@keyframes flyIn {
+    from {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  

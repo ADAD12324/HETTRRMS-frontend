@@ -1,0 +1,288 @@
+body {
+  font-family: "Raleway", sans-serif;
+}
+
+.user-profile {
+  background-color: #FFF7D4;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Profile Box */
+.profbox {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid black 1px;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+}
+
+.avatar-container {
+  position: relative;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.avatar:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.avatar-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.avatar-container:hover .avatar-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* User Information */
+.userinfo {
+  width: 90%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  border: solid black 1px;
+  background-color: white;
+}
+.userName{
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+}
+.text1{
+  font-size: 25px;
+  font-weight: bold;
+  font-family: "Raleway", sans-serif;
+}
+.text2,
+.text3 {
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin: 10px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.fname,
+.lname,
+.bday,
+.age,
+.gender,
+.phonenum,
+.email {
+  font-size: 20px;
+  font-family: "Raleway", sans-serif;
+  margin: 10px;
+}
+
+/* Form Styles */
+.formchange,
+.formedituser,
+.password-form {
+  position: fixed;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.editfn,.editln,.editpn,.editem,.editbd,.editgd,.editage{
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+  
+}
+.changepass,.changenewpass,.changeconfirmpass{
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.changesave{
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 50%; 
+}
+.editsave{
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 50%; 
+}
+.editinfo {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  height: 50px;
+  border-radius: 20px;
+}
+.canchange{
+  position: relative;
+  padding: 0.5rem 1rem;
+    background-color: rgb(252, 41, 71);
+    color: rgb(255, 255, 255);
+    width: 50%;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+.canedit{
+  position: relative;
+  padding: 0.5rem 1rem;
+    background-color: rgb(252, 41, 71);
+    color: rgb(255, 255, 255);
+    width: 50%;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+/* Settings Dropdown */
+.settings-icon-container {
+  position: absolute;
+  right: 10px;
+  top: 70px;
+}
+
+.settings-icon {
+  cursor: pointer;
+  color: #000;
+}
+
+.settings-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  padding: 10px;
+}
+
+.settings-dropdown ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.settings-dropdown li {
+  padding: 8px 0;
+  cursor: pointer;
+}
+
+.settings-dropdown li:hover {
+  background-color: #f0f0f0;
+}
+.canimage{
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #FC2947;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 50%; 
+  position: relative;
+}
+.canimage:hover{
+  background-color: #f83d7b;
+}
+.imgprof{
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.butimgsave{
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 50%; 
+  position: relative;
+}
+
+/* Media Queries for Responsive Layout */
+
+@media screen and (max-width: 768px) {
+  .profbox {
+    width: 80%;
+  }
+
+  .userinfo {
+    width: 80%;
+  }
+
+  /* Add more responsive styles as needed */
+}

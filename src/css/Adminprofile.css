@@ -1,0 +1,82 @@
+.divline{
+    border-top:solid 1px black; 
+    margin: 10px 0;
+    position: relative;
+    top: 60px;
+}
+.prof{
+    font-size: 30px;
+    font-weight: bold;
+    position: relative;
+    color: black;
+    top:60px;
+    text-align: center;
+}
+  .avatar1{
+  cursor:pointer;
+  margin-left: 5px;
+  position: relative;
+  top: 70px;
+  left:70px;
+  }
+  .avatar1:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  .avatar-icon1 {
+    position: absolute;
+    top:90%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+  }
+  .avatar-container1 {
+    position: relative;
+    width: 15%;
+  }
+  
+  .avatar-container1:hover .avatar-icon1 {
+    opacity: 1;
+    visibility: visible;
+  }
+  .fullname{
+    font-weight:bold;
+    font-size:30px;
+    position:relative;
+    bottom: 10%;
+    left:20%;
+   
+  }
+  .emailprof{
+    font-weight:bold;
+    position:relative;
+    font-size: 15px;
+    bottom:9%;
+    left:20%;
+  }
+  .phoneprof{
+    font-weight:bold;
+    position:relative;
+    font-size: 15px;
+    bottom:7%;
+    left:20%;
+  }
+  .bdayprof{
+    font-weight:bold;
+    position:relative;
+    font-size: 15px;
+    bottom:5%;
+    left:20%;
+  }
+  .ageprof{
+    font-weight:bold;
+    position:relative;
+    font-size: 15px;
+    bottom:3%;
+    left:20%;
+  }
+  .genderprof{
+    display: none;
+  }

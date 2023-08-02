@@ -1,0 +1,228 @@
+:root {
+  --PrimaryColor: hsl(199, 100%, 33%);
+  --SecondaryColor: hsl(187, 85%, 43%);
+  --gradientColor: linear-gradient(to right, hsl(187, 85%, 43%), hsl(199, 100%, 33%));
+  --blueColor: rgb(0, 123, 255);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(200, 33%, 16%);
+  --textColor: hsl(240, 4%, 36%);
+  --whiteColorDeam: hsl(0, 0%, 93%);
+  --greyText: rgb(190, 190, 190);
+  --inputColor: rgb(239, 239, 239);
+  --bodyColor: rgb(240, 240, 246);
+  --cardBG: rgb(225, 225, 235);
+  --cardHover: rgb(255, 255, 255);
+}
+
+.main {
+  width: 100%;
+}
+.main .secTitle .title {
+  position: relative;
+  width: -moz-max-content;
+  width: max-content;
+  margin: 1rem 0;
+  z-index: 2;
+}
+.main .secContent {
+  justify-content: stretch;
+  gap: 1.5rem;
+}
+.main .secContent .singleDestination {
+  height: 100%;
+  display: grid;
+  row-gap: 2px;
+  border-radius: 10px;
+  align-items: center;
+  background: var(--cardBG);
+  box-shadow: 0 2px 4px rgba(140, 140, 141, 0.549);
+  overflow: hidden;
+  align-content: space-between;
+}
+.main .secContent .singleDestination:hover {
+  background: var(--cardHover);
+  box-shadow: 1 4px 4px rgba(85, 85, 114, 0.549);
+  transition: 0.3s ease;
+}
+.main .secContent .imageDiv {
+  height: 180px;
+  width: 100%;
+  overflow: hidden;
+}
+.main .secContent .imageDiv .img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: 2s ease;
+}
+.main .secContent .imageDiv:hover img {
+  transform: scale(1.1);
+}
+.main .secContent .cardInfo {
+  padding: 1rem;
+}
+.main .secContent .cardInfo .desTitle {
+  color: var(--blackColor);
+  font-size: 1.25rem;
+}
+.main .secContent .cardInfo .continent {
+  gap: 0.2rem;
+}
+.main .secContent .cardInfo .continent .icon {
+  color: var(--textColor);
+  font-size: 18px;
+}
+.main .secContent .cardInfo .continent .name {
+  color: var(--textColor);
+  font-weight: 500;
+  font-size: 12px;
+}
+.main .secContent .cardInfo .fees {
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 1rem 0;
+  gap: 0.5rem;
+  border-top: 1.5px solid var(--greyText);
+  border-bottom: 1.5px solid var(--greyText);
+}
+.main .secContent .cardInfo .fees .grade {
+  color: var(--textColor);
+  max-width: 100px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.main .secContent .cardInfo .fees .price {
+  font-size: 2rem;
+  color: var(--blackColor);
+}
+.main .secContent .cardInfo .fees .price small {
+  font-weight: 500;
+  font-size: 10px;
+  display: block;
+}
+.main .secContent .cardInfo .desc {
+  font-size: 13.5px;
+  color: var(--textColor);
+  font-weight: 500;
+}
+.main .secContent .cardInfo .desc .duration {
+  gap: 0.5rem;
+}
+.main .secContent .cardInfo .desc .duration .name {
+  margin-bottom: -5px;
+}
+.main .secContent .cardInfo .desc .date {
+  gap: 0.5rem;
+}
+.main .secContent .cardInfo .desc .date .name {
+  margin-bottom: -5px;
+}
+.main .secContent .cardInfo .desc .place {
+  gap: 0.5rem;
+}
+.main .secContent .cardInfo .desc .place .name {
+  margin-bottom: -5px;
+}
+.main .secContent .cardInfo .desc .rate {
+  gap: 0.5rem;
+}
+.main .secContent .cardInfo .desc .rate .name {
+  margin-bottom: -5px;
+}
+.main .secContent .cardInfo .desc .rateperperson {
+  gap: 0.5rem;
+  margin: 0 38px;
+  display: grid;
+  padding-top: 4px;
+}
+.main .secContent .cardInfo .btn {
+  margin-top: 1rem;
+  color: var(--whiteColor);
+  font-weight: 600;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.main .secContent .cardInfo .btn .icon {
+  align-self: center;
+  font-size: 18px;
+}
+.main .viewbtn {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem auto;
+  font-weight: 500;
+  position: relative;
+  height: 40px;
+  padding: 0px 20px;
+  border-radius: 0.25rem;
+  color: #656565;
+  font-size: 0.85rem;
+  border: none;
+  cursor: pointer;
+}
+.main .viewbtn:hover a {
+  color: #0062cc;
+}
+
+@media screen and (min-width: 375px) {
+  .title {
+    font-size: 1.3rem;
+  }
+  .title::after {
+    width: 155px !important;
+  }
+  .viewbtn {
+    margin: auto;
+  }
+  small {
+    font-weight: 500 !important;
+    font-size: 11px !important;
+    display: block;
+  }
+}
+@media screen and (min-width: 430px) {
+  .title {
+    font-size: 1.3rem;
+  }
+  .title::after {
+    width: 160px !important;
+  }
+  .secContent .singleDestination {
+    height: auto;
+    width: 100% !important;
+  }
+}
+@media screen and (min-width: 550px) {
+  .title {
+    font-size: 1.3rem;
+  }
+  .title::after {
+    width: 165px !important;
+  }
+  .secContent .singleDestination {
+    height: auto;
+    width: 95% !important;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 660px) {
+  .secContent {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .secContent .singleDestination {
+    height: auto;
+    width: 102% !important;
+  }
+}
+@media screen and (min-width: 1110px) {
+  .secContent {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .secContent .singleDestination {
+    height: auto;
+  }
+}/*# sourceMappingURL=main.css.map */

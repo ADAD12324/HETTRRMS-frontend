@@ -1,0 +1,42 @@
+.titlein{
+    padding: 10px 45px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.startd{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 45px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.endd{
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 45px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.subsched{
+padding: 10px 26px;
+  margin-right: 10px;
+  background-color: #007bff;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+}

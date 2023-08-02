@@ -1,0 +1,168 @@
+/* General styles for responsiveness */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Styles for the entire component */
+.user-reservation {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Responsive styles for the reservation list */
+.reservation-list {
+  list-style: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+/* Responsive styles for the reservation items */
+.reservation-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  position: relative;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+/* Responsive styles for reservation info */
+.reservation-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Responsive styles for buttons */
+.butrequest {
+  padding: 10px 15px;
+  background-color: #002B5B;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.butrequest.completed {
+  background-color: green;
+}
+
+.cel {
+  padding: 10px 17px;
+  background-color: #D61355;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Responsive styles for the change date form */
+.change-date-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-width: 90%;
+  width: 500px;
+  z-index: 1000;
+}
+.changedepdate{
+  display: inline-block;
+  padding: 10px 40px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.changeretdate{
+  display: inline-block;
+  padding: 10px 40px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.changesub{
+  padding: 10px 17px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+}
+/* Responsive design for small devices (up to 600px width) */
+@media screen and (max-width: 600px) {
+  .reservation-item {
+    width: 100%;
+    left: 0;
+  }
+
+  .change-date-form {
+    width: 90%;
+  }
+
+  .butrequest,
+  .cel {
+    width: 100%;
+  }
+}
+
+/* Responsive design for medium devices (between 601px and 1024px width) */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+  .reservation-item {
+    width: 90%;
+    left: 5%;
+  }
+
+  .change-date-form {
+    width: 70%;
+  }
+}
+
+/* Responsive design for large devices (over 1024px width) */
+@media screen and (min-width: 1025px) {
+  .reservation-item {
+    width: 700px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .change-date-form {
+    width: 500px;
+  }
+}

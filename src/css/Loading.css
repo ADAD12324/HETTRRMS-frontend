@@ -1,0 +1,8 @@
+/* Add this CSS class to center the content */
+.centeredContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the height of the container to fill the viewport vertically */
+  }
+  

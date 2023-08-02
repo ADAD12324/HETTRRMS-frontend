@@ -1,0 +1,41 @@
+.butback{
+    padding: 10px 30px;
+    position: relative;
+    right: 21.8%;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight:bold;
+    background-color: #E9B384;
+    cursor: pointer;
+}
+.butback:hover{
+    background-color: #f5cdaa;
+}
+.res{
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 14px;
+    margin-top: 10px;
+}
+.bckres{
+    font-size: 30px;
+    font-weight: bold;
+}
+.ressub{
+    padding: 10px 22px;
+    margin-right: 10px;
+    background-color: #007bff;
+    border-radius: 4px;
+    border: none;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    margin-top: 10px;
+}

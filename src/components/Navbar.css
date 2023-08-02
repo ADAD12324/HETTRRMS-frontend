@@ -1,0 +1,66 @@
+body{
+    background-color: rgb(239, 242, 245);
+    
+    }
+    .btnhome{
+        text-decoration: none;  
+        color: black;
+    }
+    .btnpackages{
+        text-decoration: none;  
+        color: black;
+    }
+    .btnabout{
+        text-decoration: none;
+        color: black;
+    }
+    .btncontact{
+        text-decoration: none;
+        color: black;
+    }
+    .btnlogin{
+        text-decoration: none;
+        color: black;
+    }
+    .btnhomebar{
+        text-decoration: none;
+        margin: 10px;
+    }
+    .btnpackagesbar{
+        text-decoration: none;
+        margin: 10px;
+    }
+    .btnaboutbar{
+        text-decoration: none;
+        margin: 10px;
+    }
+    .btncontactbar{
+        text-decoration: none;
+        margin: 10px;
+    }
+    .btnloginbar{
+        text-decoration: none;
+        margin: 10px;
+    }
+    
+    .IconButton{
+        position:absolute;
+        top:50px;
+    }
+    
+    .navbar_logo{
+      width: 80px;
+      display: flex;
+      margin-bottom: 8px;
+      border-radius: 50%;
+      margin-left: 10px;
+      overflow: hidden;
+    }
+    
+    @media screen and (max-width: 599px) {
+        .navbar_logo{
+            opacity: 0;
+    
+        }
+    }
+    

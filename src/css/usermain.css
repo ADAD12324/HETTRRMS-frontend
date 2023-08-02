@@ -1,0 +1,192 @@
+/* CSS for usermain component */
+.usermain {
+  background-color: #FFF7D4;
+  min-height: 100vh;
+}
+
+.img1 {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 70vh;
+}
+
+.quote-overlay {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.quote-text {
+  position: relative;
+  font-size: 100px;
+  font-weight: bold;
+  text-align: center;
+  bottom: 170px;
+  margin-bottom: 10px;
+  color: #086c7e;
+  font-family: "Times New Roman", 'Ancient Runes', serif;;
+}
+
+.package-section {
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  padding: 16px;
+  margin-top: 20px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.search-input {
+  position: absolute;
+  left: 70%;
+  bottom: 17%;
+  padding: 10px;
+  width: 500px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.usertxt{
+  color: rgb(0, 35, 91);
+    font-size: 25px;
+    position: relative;
+    left: 40px;
+}
+
+.package-container {
+  margin-top: 20px;
+}
+
+/* Media Queries for responsiveness */
+
+/* For devices with a maximum width of 1200px */
+@media (max-width: 1200px) {
+  .img1 {
+    height: 40vh;
+  }
+  .quote-text {
+    font-size: 30px;
+    bottom: 280px;
+  }
+
+  .search-input {
+    width: 300px;
+    font-size: 14px;
+    margin-bottom: 31%;
+  }
+}
+
+/* For devices with a maximum width of 992px */
+@media (max-width: 992px) {
+  .search-input {
+    width: 80%;
+    font-size: 14px;
+    margin-bottom: 20px;
+    position: relative;
+    left: auto;
+  }
+}
+
+/* For devices with a maximum width of 768px */
+@media (max-width: 768px) {
+  .search-input {
+    width: 80%;
+    font-size: 14px;
+    margin-bottom: 20px;
+    left: auto;
+  }
+  .quote-text {
+    font-size: 30px;
+    bottom: 100px;
+    position: absolute;
+    top: 10%;
+  }
+}
+
+/* For devices with a maximum width of 600px */
+@media (max-width: 600px) {
+  .img1 {
+    height: 40vh;
+  }
+  .quote-text {
+    font-size: 30px;
+    bottom: 100px;
+    position: absolute;
+    top: 10%;
+  }
+
+
+  .package-section {
+    padding: 8px;
+    margin-top: 10px;
+  }
+  .search-input{
+    position: relative;
+    left: 30px;
+    width: 360px;
+  }
+  .usertxt{
+    position: relative;
+    margin-left: 60px;
+  }
+}
+
+/* For devices with a maximum width of 390px */
+@media (max-width: 390px) {
+  .img1 {
+    height: 40vh;
+  }
+  .quote-text {
+    font-size: 30px;
+    bottom: 100px;
+    position: absolute;
+    top: 10%;
+  }
+
+  .package-section {
+    padding: 8px;
+    margin-top: 10px;
+  }
+  .search-input{
+    position: relative;
+    left: 50px;
+    width: 280px;
+  }
+  .usertxt{
+    position: relative;
+    margin-left: 40px;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.package-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+.package-card:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); 
+}

@@ -1,0 +1,106 @@
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.firstname,
+.lastname,
+.mail,
+.phoneN,
+.birthday,
+.aged,
+.genders,
+.usern,
+.passw,
+.cpassw,
+.id,
+.profpic {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.firstname:focus,
+.lastname:focus,
+.mail:focus,
+.phoneN:focus,
+.birthday:focus,
+.aged:focus,
+.genders:focus,
+.usern:focus,
+.passw:focus,
+.cpassw:focus,
+.id:focus,
+.profpic:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.error {
+  display: block;
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+}
+
+.genders {
+  appearance: none;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333" width="18px" height="18px" stroke="%23333" stroke-width="2" focusable="false"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 14px 14px;
+}
+
+.error-message {
+  margin-top: 5px;
+  font-size: 14px;
+  color: red;
+}
+
+.file-input {
+  display: inline-block;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #6c63ff;
+  box-shadow: 0 0 5px rgba(108, 99, 255, 0.3);
+}
+
+.regbut {
+  padding: 10px 22px;
+  margin-right: 10px;
+  background-color: #007bff;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+

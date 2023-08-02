@@ -1,0 +1,67 @@
+/* Proof.css */
+
+/* Base styles for larger screens */
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.proof-list {
+  list-style: none;
+  padding: 0;
+  width: 60%;
+}
+
+.proof-title {
+  font-family: "Raleway", sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+
+.proof-item {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.proof-item .proof-details {
+  flex: 1;
+}
+
+.proof-item .proof-image {
+  flex: 1;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.proof-image img {
+  max-width: 300px; /* Change this value to adjust the image size */
+  height: auto;
+}
+
+/* Responsive styles for smaller screens */
+@media screen and (max-width: 768px) {
+  .container {
+    margin-top: 20px;
+  }
+
+  .proof-list {
+    width: 100%;
+  }
+
+  .proof-title {
+    font-size: 24px;
+  }
+
+  .proof-item {
+    padding: 0.5rem;
+  }
+
+  .proof-item .proof-image {
+    margin-top: 0.5rem;
+  }
+}

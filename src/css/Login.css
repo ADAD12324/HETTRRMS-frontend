@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+.login-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+
+.login1 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 50px;
+}
+
+.loginform {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(128, 128, 128, 0.884);
+  border: 1px solid #ccc;
+  padding: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  position: absolute;
+  width: 90%; /* Adjust the width to fit different screen sizes */
+  max-width: 400px; /* Limit the maximum width */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  flex-grow: 1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Add margin to the bottom to create space between form and footer */
+  margin-bottom: 100px; /* Adjust this value based on your footer's height */
+}
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the page takes up at least the viewport height */
+}
+
+
+.loginform label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.username,
+.logpass {
+  font-size: 20px;
+  height: 50px;
+  padding: 0.5rem;
+  width: 100%; /* Set the input fields to 100% width */
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+
+.logsubmit {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+  width: 50%; /* Set the button to 100% width */
+}
+
+button[type='submit']:hover {
+  background-color: #0069d9;
+}
+
+.regbtn,
+.forgot-password-link {
+  font-family: 'Raleway', sans-serif;
+  margin-top: 10px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #f0efef;
+}
+
+.footer {
+  flex-shrink: 0;
+  height:auto;
+  background-color: #f5f5f5;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+}
+
+.videomp4 {
+  position: absolute;
+  height: 100%;
+  height: 100vh;
+  object-fit: cover; 
+}
+
+.input-container {
+  width: 100%; /* Set the input container to 100% width */
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-container label {
+  margin-right: 10px;
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+  .loginform {
+    width: 90%; /* Adjust the width for smaller screens */
+    /* Reduce the margin-bottom to accommodate smaller screens */
+    margin-bottom: 50px; /* Adjust this value based on your footer's height and screen size */
+  }
+}
+

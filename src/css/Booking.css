@@ -1,0 +1,54 @@
+/* Booking.css */
+.subprofpay{
+  padding: 10px 22px;
+  margin-right: 10px;
+  background-color: #007bff;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+}
+.canprofpay{
+  padding: 10px 20px;
+  border-radius: 4px;
+  border: none;
+  background-color: #FC2749;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  margin-top: 10px;
+}
+/* For large screens */
+@media screen and (min-width: 768px) {
+    table {
+      width: 100%;
+    }
+    
+  }
+  
+  /* For small screens */
+  @media screen and (max-width: 767px) {
+    table {
+      width: 100%;
+      display: block;
+      overflow-x: auto;
+    }
+    .form-container {
+      left: 5%; /* Adjust the left position to center the form */
+    }
+  }
+  
+.fade-in {
+  opacity: 0; 
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in.show {
+  opacity: 1; 
+}
