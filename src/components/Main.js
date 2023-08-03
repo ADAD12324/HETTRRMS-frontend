@@ -8,6 +8,7 @@ import TimerIcon from '@mui/icons-material/Timer';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { Link } from 'react-router-dom';
+import config from './config';
 const backendUrl = config.url;
 const img1 = `${backendUrl}/images/TicaoIsland-Masbate.jpg`;
 const img2 = `${backendUrl}/images/Namanday-Island-Resort.jpg`;
