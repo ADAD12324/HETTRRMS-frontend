@@ -8,10 +8,10 @@ import TimerIcon from '@mui/icons-material/Timer';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { Link } from 'react-router-dom';
-
-const img1 = 'http://localhost:3000/images/TicaoIsland-Masbate.jpg';
-const img2 = 'http://localhost:3000/images/Namanday-Island-Resort.jpg';
-const img3 = 'http://localhost:3000/images/donsol-whaleshark.jpg';
+const backendUrl = config.url;
+const img1 = `${backendUrl}/images/TicaoIsland-Masbate.jpg`;
+const img2 = `${backendUrl}/images/Namanday-Island-Resort.jpg`;
+const img3 = `${backendUrl}/images/donsol-whaleshark.jpg`;
 
 const Data = [
     {
