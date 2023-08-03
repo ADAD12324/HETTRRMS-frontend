@@ -8,7 +8,8 @@ import Footer from '../components/Footer';
 import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import config from './config';
+const backendUrl = config.url;
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -73,7 +74,7 @@ const Login = () => {
     });
   };
   
-  const videoUrl='../images/ulol.mp4';
+  const videoUrl=`${backendUrl}/images/ulol.mp4`;
 
   return (
     <div className="login-page">
