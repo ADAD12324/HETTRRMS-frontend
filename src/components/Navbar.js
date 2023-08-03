@@ -21,11 +21,12 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import InfoIcon from '@mui/icons-material/Info';
 import CallIcon from '@mui/icons-material/Call';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import config from './config';
 
 
 const drawerWidth = 240;
 
+const backendUrl = config.url;
 
 function Navbar(props) {
   const { window } = props;
@@ -34,7 +35,7 @@ function Navbar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const logo1 = '../images/hett_logo_noname.png';
+  const logo1 = `${backendUrl}/images/hett_logo_noname.png`;
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
       <Typography variant="h6" sx={{ my: 2 }}>
