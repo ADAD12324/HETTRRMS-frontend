@@ -9,13 +9,13 @@ import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import config from './config';
-const backendUrl = config.url;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-
+  const backendUrl = config.url;
   const validateLoginForm = require("./validateLoginForm");
   
   const handleFormSubmit = async (event) => {
