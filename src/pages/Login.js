@@ -8,7 +8,7 @@ import Footer from '../components/Footer';
 import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import config from './config';
+import config from '../components/config';
 
 const Login = () => {
   const [username, setUsername] = useState("");
