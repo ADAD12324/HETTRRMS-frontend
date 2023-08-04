@@ -5,6 +5,7 @@ import moment from 'moment';
 import '../css/Booking.css';
 import Loading from "../components/Loading";
 import swal from 'sweetalert';
+
 const Booking = () => {
   const [bookings, setBookings] = useState([]);
   const [showForm, setShowForm] = useState(false); 
