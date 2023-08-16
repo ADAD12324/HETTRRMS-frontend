@@ -38,7 +38,7 @@ const Packages = () => {
   const [international, setInternational] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get('/api/packages')
+    axios.get('https://hettrrms-server.onrender.com/api/packages')
       .then(response => {
         setPackages(response.data);
       })
@@ -48,7 +48,7 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('/api/national')
+    axios.get('https://hettrrms-server.onrender.com/api/national')
       .then(response => {
         setNational(response.data);
       })
@@ -58,7 +58,7 @@ const Packages = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('/api/international')
+    axios.get('https://hettrrms-server.onrender.com/api/international')
       .then(response => {
         setInternational(response.data);
       })
