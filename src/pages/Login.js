@@ -30,7 +30,7 @@ const Login = () => {
     }
   
     try {
-      const response = await axios.post("/api/login", { username, password });
+      const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
   
       // Check if login was successful
       if (response.data.error) {
