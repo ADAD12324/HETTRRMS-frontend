@@ -56,7 +56,7 @@ const Local = () => {
         },
       });
     };
-  const image1 = '../uploads/Local Tour Package.jpg';
+  const image1 = 'https://hettrrms.onrender.com/uploads/Local Tour Package.jpg';
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
