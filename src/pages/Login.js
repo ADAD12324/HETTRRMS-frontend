@@ -42,7 +42,7 @@ const Login = () => {
         localStorage.setItem("userId", response.data.userId);
   
         if (response.data.role === 'user') {
-          navigate('https://hettrrms-server.onrender.com/user');
+          navigate('https://hettrrms.onrender.com/user');
         } else if (response.data.role === 'admin') {
           navigate('/admin');
         }
