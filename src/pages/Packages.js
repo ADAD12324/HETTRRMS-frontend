@@ -143,13 +143,14 @@ const Packages = () => {
         </Grid >
   <br /> <br />
         <div  style={{fontFamily:'fantasy', fontSize:'40px', color:'#002B5B'}}>International Packages</div>
-     {/*  <Grid container spacing={2} style={{ position: "relative", top: "40px", paddingBottom:'30px'}}>
+        <Grid container spacing={2} style={{ position: "relative", top: "40px", paddingBottom:'30px'}}>
           {international.map((pkg, index) => (
             <Grid item xs={12} md={2} key={index}>
               <PackageCard {...pkg} id={index} onViewDetails={handleViewDetailsInternational} imageUrl={pkg.imageUrl} />
+             
             </Grid>
           ))}
-        </Grid >*/}<br /> <br />
+        </Grid ><br /> <br />
       <Footer />
     </div>
   );
