@@ -69,7 +69,7 @@ const router = createBrowserRouter([
   },
   //user
   {
-    path:"https://hettrrms.onrender.com/User",
+    path:"/User",
     element:<Usermain />,
   },
   {
