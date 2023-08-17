@@ -31,7 +31,7 @@ const Local = () => {
     const navigate = useNavigate();
  
     useEffect(() => {
-      axios.get('/api/packages')
+      axios.get('https://hettrrms.onrender.com/api/packages')
         .then((response) => {
           setPackages(response.data);
         })
@@ -45,7 +45,7 @@ const Local = () => {
     const handleViewDetails = (id, name, description) => {
       const packageData = packages[id];
      
-      navigate(`/packages/${id}`, {
+      navigate(`https://hettrrms.onrender.com/packages/${id}`, {
         state: {
           packageData,
           imageUrl: packageData.imageUrl,
