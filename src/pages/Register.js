@@ -82,7 +82,7 @@ const Register = () => {
       formData.append('confirmPassword', confirmPassword);
       formData.append('idImage', idImage);
       formData.append('userImage', userImage);
-      fetch('/api/register', {
+      fetch('https://hettrrms-server.onrender.com/api/register', {
         method: 'POST',
         body: formData,
       })
