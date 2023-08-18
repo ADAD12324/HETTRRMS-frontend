@@ -21,23 +21,12 @@ const Login = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
   
-    // Validate the form inputs
-    const validationErrors = validateLoginForm(username, password);
-   
-    if (validationErrors.length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-  
     try {
-      const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
-
+      const response = await axios.post(`${backendUrl}/api/login`, { username, password });
   
-      // Check if login was successful
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
-        // Store user data in localStorage
         localStorage.setItem("token", response.data.token);
         localStorage.setItem("username", username);
         localStorage.setItem("userId", response.data.userId);
@@ -51,7 +40,7 @@ const Login = () => {
         displayToast('success', 'Signed in successfully');
       }
     } catch (error) {
-      console.log(error);
+      console.error(error);
       swal("Failed to login, Please try again.", "", "error");
     }
   };
