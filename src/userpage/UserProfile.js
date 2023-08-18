@@ -49,7 +49,7 @@ const UserProfile = () => {
       credentials: 'include'
     };
 
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
+    fetch(`/api/users/${id}/image`, requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to update user image');
@@ -80,7 +80,7 @@ const UserProfile = () => {
       }),
     };
   
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, requestOptions)
+    fetch(`/api/users/${id}`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update user');
@@ -136,7 +136,7 @@ const UserProfile = () => {
       }),
     };
   
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/password`, requestOptions)
+    fetch(`/api/users/${id}/password`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update password');
@@ -171,7 +171,7 @@ const UserProfile = () => {
 
   
   useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+    fetch('/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
