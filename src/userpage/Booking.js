@@ -20,7 +20,7 @@ const Booking = () => {
 
   useEffect(() => { 
     const userId = localStorage.getItem('userId');
-    axios.get(`/api/bookings/${userId}`)
+    axios.get(`https://hettrrms-server.onrender.com/api/bookings/${userId}`)
       .then(response => setBookings(response.data.bookings))
       .catch(error => console.error(error));
   }, []);
@@ -86,7 +86,7 @@ const Booking = () => {
     formData.append('paymentAmount', paymentAmount);
 
     try {
-      const response = await fetch('/submit-payment-proof', {
+      const response = await fetch('https://hettrrms-server.onrender.com/submit-payment-proof', {
         method: 'POST',
         body: formData,
       });
