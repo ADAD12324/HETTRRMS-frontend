@@ -6,7 +6,7 @@ import { AiFillSetting } from "react-icons/ai";
 import Userapp from '../components/Userapp';
 import Swal from 'sweetalert2';
 import Loading from '../components/Loading';
-
+import axios from 'axios';
 
 const UserProfile = () => {
   const [id, setId] = useState('');
