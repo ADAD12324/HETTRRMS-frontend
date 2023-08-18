@@ -163,8 +163,9 @@ export default function Userapp() {
   const [userImageUrl, setUserImageUrl] = useState('');
 
   useEffect(() => {
-    fetch('/api/user', { credentials: 'include' })
-      .then((response) => response.json())
+    axios // Use axios instead of fetch
+      .get('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+      .then((response) => response.data)
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
       })
