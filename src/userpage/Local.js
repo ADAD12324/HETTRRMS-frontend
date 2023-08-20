@@ -45,7 +45,7 @@ const Local = () => {
     const handleViewDetails = (id, name, description) => {
       const packageData = packages[id];
      
-      navigate(`https://hettrrms.onrender.com/packages/${id}`, {
+      navigate(`/packages/${id}`, {
         state: {
           packageData,
           imageUrl: packageData.imageUrl,

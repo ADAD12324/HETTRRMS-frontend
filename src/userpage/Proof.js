@@ -11,7 +11,7 @@ const Proof = () => {
   useEffect(() => {
     const userId = localStorage.getItem("userId");
     axios
-      .get(`/api/paymentproof/${userId}`)
+      .get(`https://hettrrms-server.onrender.com/api/paymentproof/${userId}`)
       .then((response) => setProofs(response.data.proofs))
       .catch((error) => console.error(error));
   }, []);

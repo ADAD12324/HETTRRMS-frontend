@@ -29,7 +29,7 @@ const International = () => {
   const [international, setInternational] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get('/api/international')
+    axios.get('https://hettrrms-server.onrender.com/api/international')
       .then((response) => {
         setInternational(response.data);
       })
@@ -50,7 +50,7 @@ const International = () => {
       },
     });
   };
-  const image1 = '../uploads/BANNER_INTERNATIONAL.jpg';
+  const image1 = 'https://hettrrms-server.onrender.com/uploads/BANNER_INTERNATIONAL.jpg';
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {

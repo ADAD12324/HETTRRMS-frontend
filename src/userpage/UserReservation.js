@@ -31,7 +31,7 @@ const UserReservation = () => {
       returnDate: formData.get("returnDate"), // Get returnDate from formData
     };
   
-    axios.post("/api/request-date-change", requestData) // Send requestData instead of formData
+    axios.post("https://hettrrms-server.onrender.com/api/request-date-change", requestData) // Send requestData instead of formData
       .then((response) => {
         console.log(response.data);
         swal("Successfully request a change date wait for the response of the admin", "", "success");
@@ -50,7 +50,7 @@ const UserReservation = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    axios.get(`/api/reservations/${userId}`)
+    axios.get(`https://hettrrms-server.onrender.com/api/reservations/${userId}`)
       .then(response => setReservations(response.data.proofs))
       .catch(error => console.error(error));
   }, []);
@@ -71,7 +71,7 @@ const UserReservation = () => {
       travelers:reservation.travelers,
     };
   
-    axios.post('/api/generate-record', data)
+    axios.post('https://hettrrms-server.onrender.com/api/generate-record', data)
       .then((response) => {
         console.log(response.data);
         // Handle success

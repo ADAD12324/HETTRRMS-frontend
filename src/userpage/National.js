@@ -28,7 +28,7 @@ const National = () => {
   const [national, setNational] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    axios.get('/api/national')
+    axios.get('https://hettrrms-server.onrender.com/api/national')
       .then((response) => {
         setNational(response.data);
       })
@@ -52,7 +52,7 @@ const National = () => {
     });
   };
 
-  const image1 = '../uploads/BANNERS_NATIONAL.jpg';
+  const image1 = 'https://hettrrms-server.onrender.com/uploads/BANNERS_NATIONAL.jpg';
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {

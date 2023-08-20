@@ -50,7 +50,7 @@ const Book = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch("/api/bookings", {
+      const response = await fetch("https://hettrrms-server.onrender.com/api/bookings", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
