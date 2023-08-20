@@ -31,7 +31,7 @@ const Local = () => {
     const navigate = useNavigate();
  
     useEffect(() => {
-      axios.get('https://hettrrms.onrender.com/api/packages')
+      axios.get('https://hettrrms-server.onrender.com/api/packages')
         .then((response) => {
           setPackages(response.data);
         })
@@ -56,7 +56,7 @@ const Local = () => {
         },
       });
     };
-  const image1 = 'https://hettrrms.onrender.com/uploads/Local Tour Package.jpg';
+  const image1 = 'https://hettrrms-server.onrender.com/uploads/Local Tour Package.jpg';
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {

@@ -105,7 +105,7 @@ const Proof = () => {
                     <b>Payment Proof:</b>
                   </p>
                   <img
-                    src={`../${proof.payment_proof_path}`}
+                    src={`https://hettrrms-server.onrender.com/${proof.payment_proof_path}`}
                     alt="Payment proof"
                     className="proof-image"
                   />
