@@ -6,7 +6,7 @@ import { AiFillSetting } from "react-icons/ai";
 import Userapp from '../components/Userapp';
 import Swal from 'sweetalert2';
 import Loading from '../components/Loading';
-import axios from 'axios';
+
 
 const UserProfile = () => {
   const [id, setId] = useState('');
@@ -45,17 +45,19 @@ const UserProfile = () => {
 
     const requestOptions = {
       method: 'PUT',
-      data: formData,
-      headers: { 'Content-Type': 'multipart/form-data' },
-      withCredentials: true // Include credentials
+      body: formData,
+      credentials: 'include'
     };
 
-    axios.put(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
       .then(response => {
-        if (!response.data) {
+        if (!response.ok) {
           throw new Error('Failed to update user image');
         }
-        setUserImageUrl(response.data.userImageUrl);
+        return response.json();
+      })
+      .then(data => {
+        setUserImageUrl(data.userImageUrl);
         setSelectedFile(null);
         setIsImageFormOpen(false);
       })
@@ -63,23 +65,29 @@ const UserProfile = () => {
   }
 
   const handleUpdateUser = () => {
-    const requestData = {
-      id: id,
-      firstName: editFirstName,
-      lastName: editLastName,
-      email: editEmail,
-      phoneNumber: editPhoneNumber,
-      birthdate: editBirthdate,
-      age: editAge,
-      gender: editGender,
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        id: id,
+        firstName: editFirstName,
+        lastName: editLastName,
+        email: editEmail,
+        phoneNumber: editPhoneNumber,
+        birthdate: editBirthdate,
+        age: editAge,
+        gender: editGender,
+      }),
     };
-
-    axios.put(`https://hettrrms-server.onrender.com/api/users/${id}`, requestData)
+  
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, requestOptions)
       .then((response) => {
-        if (!response.data) {
+        if (!response.ok) {
           throw new Error('Failed to update user');
         }
-        const data = response.data;
+        return response.json();
+      })
+      .then((data) => {
         // Update the user information on the frontend if required
         setFirstName(data.firstName);
         setLastName(data.lastName);
@@ -88,7 +96,7 @@ const UserProfile = () => {
         setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
         setAge(data.age);
         setGender(data.gender);
-
+  
         // Update the edit form values
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -97,7 +105,7 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
-
+  
         setIsEditFormOpen(false); // Close the edit form
       })
       .catch((error) => {
@@ -119,16 +127,23 @@ const UserProfile = () => {
       return;
     }
   
-    const requestData = {
-      currentPassword: currentPassword,
-      newPassword: newPassword,
+    const requestOptions = {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        currentPassword: currentPassword,
+        newPassword: newPassword,
+      }),
     };
   
-    axios.put(`https://hettrrms-server.onrender.com/api/users/${id}/password`, requestData)
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/password`, requestOptions)
       .then((response) => {
-        if (!response.data) {
+        if (!response.ok) {
           throw new Error('Failed to update password');
         }
+        return response.json();
+      })
+      .then((data) => {
         console.log('Password updated successfully');
         setIsPasswordFormOpen(false);
   
@@ -153,12 +168,11 @@ const UserProfile = () => {
   
   
   
-  
 
   
   useEffect(() => {
-    axios.get('https://hettrrms-server.onrender.com/api/user', { withCredentials: true })
-      .then((response) => response.data)
+    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+      .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
         setId(data.id);
