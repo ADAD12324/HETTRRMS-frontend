@@ -96,7 +96,7 @@ const UserProfile = () => {
         setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
         setAge(data.age);
         setGender(data.gender);
-  
+      
         // Update the edit form values
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -105,7 +105,7 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
-  
+      
         setIsEditFormOpen(false); // Close the edit form
       })
       .catch((error) => {
