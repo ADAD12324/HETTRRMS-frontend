@@ -37,7 +37,18 @@ const UserProfile = () => {
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
   }
+  const [showContent, setShowContent] = useState(false);
 
+  useEffect(() => {
+    // When the component mounts, wait for a short duration and then show the content
+    const timer = setTimeout(() => {
+      
+      setShowContent(true);
+    }, 300); // You can adjust the duration as needed
+
+    // Clean up the timer when the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
   const handleImageFormSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(); 
@@ -192,6 +203,8 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
+
+        setShowContent(true);
       })
       .catch((error) => {
         console.error(error);
@@ -201,19 +214,7 @@ const UserProfile = () => {
   const handleSettingsClick = () => {
     setIsSettingsDropdownOpen(!isSettingsDropdownOpen);
   };
-  const [showContent, setShowContent] = useState(false);
-
-  useEffect(() => {
-    // When the component mounts, wait for a short duration and then show the content
-    const timer = setTimeout(() => {
-      
-      setShowContent(true);
-    }, 300); // You can adjust the duration as needed
-
-    // Clean up the timer when the component unmounts
-    return () => clearTimeout(timer);
-  }, []);
-
+  
   if (!showContent) {
     return <Loading/>;
   }
