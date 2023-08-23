@@ -174,7 +174,7 @@ useEffect(() => {
   return () => clearTimeout(timer);
 }, []);
   useEffect(() => {
-    axios.get('/api/packages')
+    axios.get('https://hettrrms-server.onrender.com/api/packages')
       .then((response) => {
         setPackages(response.data);
         
@@ -186,7 +186,7 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-    axios.get('/api/national')
+    axios.get('https://hettrrms-server.onrender.com/api/national')
       .then((response) => {
         setNational(response.data);
         
@@ -199,7 +199,7 @@ useEffect(() => {
 
   
   useEffect(() => {
-    axios.get('/api/international')
+    axios.get('https://hettrrms-server.onrender.com/api/international')
       .then((response) => {
         setInternational(response.data);
         
@@ -272,7 +272,7 @@ const handleSubmit = (e) => {
   formData.append("itinerary", JSON.stringify(itinerary));
 
   axios
-    .post("/api/packages", formData)
+    .post("https://hettrrms-server.onrender.com/api/packages", formData)
     .then((response) => {
       console.log(response.data);
       const newPackage = {
@@ -307,7 +307,7 @@ const handleSubmitNational = (e) => {
   formData.append("image", image);
   formData.append("itinerary", JSON.stringify(itinerary));
   axios
-    .post("/api/national", formData)
+    .post("https://hettrrms-server.onrender.com/api/national", formData)
     .then((response) => {
       console.log(response.data);
       const newPackage = {
@@ -341,7 +341,7 @@ const handleSubmitInternational = (e) => {
   formData.append("image", image);
   formData.append("itinerary", JSON.stringify(itinerary));
   axios
-    .post("/api/international", formData)
+    .post("https://hettrrms-server.onrender.com/api/international", formData)
     .then((response) => {
       console.log(response.data);
       const newPackage = {
@@ -374,7 +374,7 @@ const handleSubmitInternational = (e) => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;

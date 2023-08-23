@@ -132,7 +132,7 @@ export default function BusinessPartnerRecord() {
   }, []);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -146,7 +146,7 @@ export default function BusinessPartnerRecord() {
 
     return () => clearInterval(intervalId);
   }, []);
-  const wrdimg = '../images/wrdimg.jfif';
+  const wrdimg = 'https://hettrrms-server.onrender.com/images/wrdimg.jfif';
   const navigate = useNavigate();
   const [showForm, setShowForm] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -166,7 +166,7 @@ export default function BusinessPartnerRecord() {
     const formData = new FormData();
     formData.append('file', selectedFile);
   
-    fetch('/api/uploadRecord', {
+    fetch('https://hettrrms-server.onrender.com/api/uploadRecord', {
       method: 'POST',
       body: formData,
     })
@@ -182,7 +182,7 @@ export default function BusinessPartnerRecord() {
           };
   
           // Save recordData to the 'business_partner_records' table
-          fetch('/api/saveRecord', {
+          fetch('https://hettrrms-server.onrender.com/api/saveRecord', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -221,7 +221,7 @@ export default function BusinessPartnerRecord() {
 
   const fetchBusinessFiles = async () => {
     try {
-      const response = await fetch('../api/business-partner-files');
+      const response = await fetch('https://hettrrms-server.onrender.com/api/business-partner-files');
       const data = await response.json();
       setBusinessFiles(data);
     } catch (error) {
@@ -230,7 +230,7 @@ export default function BusinessPartnerRecord() {
   };
 
   const handleDownload = (fileName) => {
-    fetch(`/api/downloadRecord?filePath=${fileName}`)
+    fetch(`https://hettrrms-server.onrender.com/api/downloadRecord?filePath=${fileName}`)
       .then((response) => response.blob())
       .then((blob) => {
         const url = window.URL.createObjectURL(new Blob([blob]));

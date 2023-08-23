@@ -131,7 +131,7 @@ export default function AcceptDecline() {
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -151,7 +151,7 @@ export default function AcceptDecline() {
   const [requests, setRequests] = useState([]);
   useEffect(() => {
     const fetchBookings = async () => {
-      const response = await fetch("/api/bookings?status=pending");
+      const response = await fetch("https://hettrrms-server.onrender.com/api/bookings?status=pending");
       if (response.ok) {
         const data = await response.json();
         setBookings(data.bookings);
@@ -162,7 +162,7 @@ export default function AcceptDecline() {
 
   useEffect(() => {
     const fetchRequests = async () => {
-      const response = await fetch('/api/requests?request_status=pending');
+      const response = await fetch('https://hettrrms-server.onrender.com/api/requests?request_status=pending');
       if (response.ok) {
         const data = await response.json();
         setRequests(data.requests);
@@ -173,7 +173,7 @@ export default function AcceptDecline() {
   }, []);
 
   const handleAccept = async (bookingId) => {
-    const response = await fetch(`/api/bookings/${bookingId}/accept`, { method: "POST" });
+    const response = await fetch(`https://hettrrms-server.onrender.com/api/bookings/${bookingId}/accept`, { method: "POST" });
     if (response.ok) {
       swal("Successfully accepted the reservation", "", "success");
       const newBookings = bookings.filter((booking) => booking.id !== bookingId);
@@ -183,7 +183,7 @@ export default function AcceptDecline() {
         bookingContainer.style.display = "none";
       }
   
-      const notifyResponse = await fetch(`/api/bookings/${bookingId}/accepted/notify`, { method: "POST" });
+      const notifyResponse = await fetch(`https://hettrrms-server.onrender.com/api/bookings/${bookingId}/accepted/notify`, { method: "POST" });
       if (notifyResponse.ok) {
         console.log("Notification sent successfully");
       } else {
@@ -196,7 +196,7 @@ export default function AcceptDecline() {
   
   
   const handleDecline = async (bookingId) => {
-    const response = await fetch(`/api/bookings/${bookingId}/decline`, { method: "POST" });
+    const response = await fetch(`https://hettrrms-server.onrender.com/api/bookings/${bookingId}/decline`, { method: "POST" });
     if (response.ok) {
       swal("Reservation Declined", "", "success");
       const newBookings = bookings.filter((booking) => booking.id !== bookingId);
@@ -205,7 +205,7 @@ export default function AcceptDecline() {
         const bookingContainer = document.getElementById("booking-container");
         bookingContainer.style.display = "none";
       }
-      const notifyResponse = await fetch(`/api/bookings/${bookingId}/declined/notify`, { method: "POST" });
+      const notifyResponse = await fetch(`https://hettrrms-server.onrender.com/api/bookings/${bookingId}/declined/notify`, { method: "POST" });
       if (notifyResponse.ok) {
         console.log("Notification sent successfully");
       } else {
@@ -221,7 +221,7 @@ export default function AcceptDecline() {
       const updatedDepartureDate = moment(departureDate).format('YYYY-MM-DD');
       const updatedReturnDate = moment(returnDate).format('YYYY-MM-DD');
   
-      const response = await fetch('/api/update-booking-date', {
+      const response = await fetch('https://hettrrms-server.onrender.com/api/update-booking-date', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -252,7 +252,7 @@ export default function AcceptDecline() {
 
   const handleDeclineRequest = async (requestId) => {
     try {
-      const response = await fetch(`/api/decline-request/${requestId}`, {
+      const response = await fetch(`https://hettrrms-server.onrender.com/api/decline-request/${requestId}`, {
         method: 'POST',
       });
 

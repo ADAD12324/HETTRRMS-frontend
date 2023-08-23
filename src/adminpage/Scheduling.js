@@ -140,7 +140,7 @@ export default function Scheduling() {
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -199,9 +199,9 @@ export default function Scheduling() {
     const start = moment(newEvent.start).add(getTimezoneOffset(), "minutes").toISOString();
     const end = moment(newEvent.end).add(getTimezoneOffset(), "minutes").toISOString();
     if (editEventId !== null) {
-      await axios.put(`/api/events/${editEventId}`, { title: newEvent.title, start, end });
+      await axios.put(`https://hettrrms-server.onrender.com/api/events/${editEventId}`, { title: newEvent.title, start, end });
     } else {
-      await axios.post("/api/events", { title: newEvent.title, start, end });
+      await axios.post("https://hettrrms-server.onrender.com/api/events", { title: newEvent.title, start, end });
     }
     handleModalClose();
     fetchEvents();
@@ -218,13 +218,13 @@ export default function Scheduling() {
   };
 
   const handleEventDelete = async (event) => {
-    await axios.delete(`/api/events/${event.id}`);
+    await axios.delete(`https://hettrrms-server.onrender.com/api/events/${event.id}`);
     fetchEvents();
   };
 
   const fetchEvents = async () => {
     try {
-      const response = await axios.get("/api/events");
+      const response = await axios.get("https://hettrrms-server.onrender.com/api/events");
       const data = response.data;
       const formattedEvents = data.map((event) => {
         return {

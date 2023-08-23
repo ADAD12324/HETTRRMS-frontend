@@ -197,7 +197,7 @@ export default function Users() {
       formData.append('confirmPassword', confirmPassword);
       formData.append('idImage', idImage);
 
-      fetch('/api/register', {
+      fetch('https://hettrrms-server.onrender.com/api/register', {
         method: 'POST',
         body: formData,
       })
@@ -243,21 +243,21 @@ export default function Users() {
   
 
   useEffect(() => {
-    fetch('/show')
+    fetch('https://hettrrms-server.onrender.com/show')
       .then(response => response.json())
       .then(data => setUsers([...data]));
   }, []);
  
   
   useEffect(() => {
-    axios.get('/api/users')
+    axios.get('https://hettrrms-server.onrender.com/api/users')
       .then(response => setUsers(response.data))
       .catch(error => console.error(error));
   }, []);
 
   // Delete a user with the specified ID
   function deleteUser(id) {
-    axios.delete(`/api/users/${id}`)
+    axios.delete(`https://hettrrms-server.onrender.com/api/users/${id}`)
       .then(response => {
         console.log(response.data.message); 
         setUsers(users.filter(user => user.id !== id));
@@ -273,7 +273,7 @@ export default function Users() {
   };
   const updateUser = async (id) => {
     try {
-      const response = await fetch(`/api/users/${id}`, {
+      const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -322,7 +322,7 @@ const [unreadCount, setUnreadCount] = useState(parseInt(localStorage.getItem('un
 
 useEffect(() => {
   const intervalId = setInterval(() => {
-    fetch('/api/notifications')
+    fetch('https://hettrrms-server.onrender.com/api/notifications')
       .then((response) => response.json())
       .then((data) => {
         const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;

@@ -132,7 +132,7 @@ export default function ClientsRecord() {
   }, []);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -146,7 +146,7 @@ export default function ClientsRecord() {
 
     return () => clearInterval(intervalId);
   }, []);
-  const wrdimg = '../images/wrdimg.jfif';
+  const wrdimg = 'https://hettrrms-server.onrender.com/images/wrdimg.jfif';
   const navigate = useNavigate();
   const [generatedFiles, setGeneratedFiles] = useState([]);
 
@@ -156,7 +156,7 @@ export default function ClientsRecord() {
 
   const fetchGeneratedFiles = async () => {
     try {
-      const response = await fetch('../api/generated-files');
+      const response = await fetch('https://hettrrms-server.onrender.com/api/generated-files');
       const data = await response.json();
       setGeneratedFiles(data);
     } catch (error) {

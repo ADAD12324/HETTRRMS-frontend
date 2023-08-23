@@ -133,7 +133,7 @@ export default function BackupandRestore() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -150,7 +150,7 @@ export default function BackupandRestore() {
 
   const navigate = useNavigate();
   const handleBackup = () => {
-    axios.get('/backup')
+    axios.get('https://hettrrms-server.onrender.com/backup')
       .then((response) => {
         if (response.data.success) {
           alert('Backup created successfully');
@@ -170,7 +170,7 @@ export default function BackupandRestore() {
     const formData = new FormData();
     formData.append('file', file);
   
-    axios.post('/restore', formData)
+    axios.post('https://hettrrms-server.onrender.com/restore', formData)
       .then((response) => {
         if (response.data.success) {
           alert('Database restored successfully');

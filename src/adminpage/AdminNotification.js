@@ -133,7 +133,7 @@ export default function AdminNotification() {
   }, []);
   
   useEffect(() => {
-    fetch('/api/notifications')
+    fetch('https://hettrrms-server.onrender.com/api/notifications')
       .then((response) => response.json())
       .then((data) => {
         setNotifications(data);

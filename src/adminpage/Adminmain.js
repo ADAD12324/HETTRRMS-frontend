@@ -141,41 +141,41 @@ export default function Adminmain() {
   }, []);
   
   useEffect(() => {
-    axios.get('../users')
+    axios.get('https://hettrrms-server.onrender.com/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error(err));
   }, []);
 
   useEffect(() => {
-    axios.get('../packages')
+    axios.get('https://hettrrms-server.onrender.com/packages')
       .then(res => setPackages(res.data))
       .catch(err => console.error(err));
   }, []);
 
  useEffect(() => {
-    axios.get('../national')
+    axios.get('https://hettrrms-server.onrender.com/national')
       .then(res => setNational(res.data))
       .catch(err => console.error(err));
   }, []);
 
   useEffect(() => {
-    axios.get('../international')
+    axios.get('https://hettrrms-server.onrender.com/international')
       .then(res => setInternational(res.data))
       .catch(err => console.error(err));
   }, []);
 
   useEffect(() => {
-    axios.get('../bookings/count?status=pending')
+    axios.get('https://hettrrms-server.onrender.com/bookings/count?status=pending')
       .then(res => setPendingBookingsCount(res.data.count))
       .catch(err => console.error(err));
   }, []);
   useEffect(() => {
-    axios.get('../requests/count?status=pending')
+    axios.get('https://hettrrms-server.onrender.com/requests/count?status=pending')
       .then(res => setPendingRequestsCount(res.data.count))
       .catch(err => console.error(err));
   }, []);
   useEffect(() => {
-    axios.get('../reservation')
+    axios.get('https://hettrrms-server.onrender.com/reservation')
       .then(res => setReservation(res.data))
       .catch(err => console.error(err));
   }, []);
@@ -189,7 +189,7 @@ export default function Adminmain() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;

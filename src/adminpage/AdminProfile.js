@@ -139,7 +139,7 @@ export default function AdminProfile() {
   }, []);
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(notification => !notification.read && !localStorage.getItem(`notification_${notification.id}`)).length;
@@ -197,7 +197,7 @@ export default function AdminProfile() {
       credentials: 'include'
     };
 
-    fetch(`/api/users/${id}/image`, requestOptions)
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to update user image');
@@ -228,7 +228,7 @@ export default function AdminProfile() {
       }),
     };
   
-    fetch(`/api/users/${id}`, requestOptions)
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update user');
@@ -288,7 +288,7 @@ export default function AdminProfile() {
       }),
     };
   
-    fetch(`/api/users/${id}/password`, requestOptions)
+    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/password`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update password');
@@ -308,7 +308,7 @@ export default function AdminProfile() {
   
 
   useEffect(() => {
-    fetch('/api/user', { credentials: 'include' })
+    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
@@ -340,7 +340,7 @@ export default function AdminProfile() {
   };
   
   const handleLogout = () => {
-    axios.get('/api/logout')
+    axios.get('https://hettrrms-server.onrender.com/api/logout')
       .then(() => {
         localStorage.removeItem('userId');
         navigate('/');

@@ -118,7 +118,7 @@ export default function Reservation() {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      fetch('/api/notifications')
+      fetch('https://hettrrms-server.onrender.com/api/notifications')
         .then((response) => response.json())
         .then((data) => {
           const newUnreadCount = data.filter(
@@ -151,7 +151,7 @@ export default function Reservation() {
   }, []);
   
   useEffect(() => {
-    fetch('/allreservations')
+    fetch('https://hettrrms-server.onrender.com/allreservations')
       .then((response) => response.json())
       .then((data) => {
         setReservations(data);
