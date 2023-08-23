@@ -185,19 +185,9 @@ const UserProfile = () => {
     fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
-        setUserImageUrl(data.userImageUrl);
-        setId(data.id);
-        console.log('ID:', data.id);
         setFirstName(data.firstName);
-        console.log('First Name:', data.firstName);
-        setLastName(data.lastName)
-        console.log('Last Name:', data.lastName);
+        setLastName(data.lastName);
         setEmail(data.email);
-        setPhoneNumber(data.phoneNumber);
-        setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
-        setAge(data.age);
-        setGender(data.gender);
-
         // Set the default values for the edit form
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -250,16 +240,18 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="userinfo">
-        <div className="text2">User Information</div>
-        <div className="fname"><b>First Name:</b> {firstName}</div>
-        <div className="lname"><b>Last Name:</b> {lastName}</div>
-        <div className="bday"><b>Birthdate:</b> {birthdate}</div>
-        <div className="age"><b>Age:</b> {age}</div>
-        <div className="gender"><b>Gender:</b> {gender}</div>
-        <div className="text3">Contact Information</div>
-        <div className="phonenum"><b>Phone Number:</b> {phoneNumber}</div>
-        <div className="email"><b>Email:</b> {email}</div>
-        
+      <div className="userinfo-item">
+    <span className="info-label">First Name:</span>
+    <span className="info-value">{firstName}</span>
+  </div>
+  <div className="userinfo-item">
+    <span className="info-label">Last Name:</span>
+    <span className="info-value">{lastName}</span>
+  </div>
+  <div className="userinfo-item">
+    <span className="info-label">Email:</span>
+    <span className="info-value">{email}</span>
+  </div>
       </div>
 
       {isImageFormOpen && (
