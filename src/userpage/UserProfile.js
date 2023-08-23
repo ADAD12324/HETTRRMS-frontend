@@ -206,33 +206,7 @@ const UserProfile = () => {
   useEffect(() => {
     // When the component mounts, wait for a short duration and then show the content
     const timer = setTimeout(() => {
-      useEffect(() => {
-        fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
-          .then((response) => response.json())
-          .then((data) => {
-            setUserImageUrl(data.userImageUrl);
-            setId(data.id);
-            setFirstName(data.firstName);
-            setLastName(data.lastName)
-            setEmail(data.email);
-            setPhoneNumber(data.phoneNumber);
-            setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
-            setAge(data.age);
-            setGender(data.gender);
-    
-            // Set the default values for the edit form
-            setEditFirstName(data.firstName);
-            setEditLastName(data.lastName);
-            setEditPhoneNumber(data.phoneNumber);
-            setEditEmail(data.email);
-            setEditBirthdate(data.birthdate);
-            setEditAge(data.age);
-            setEditGender(data.gender);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      }, []);
+      
       setShowContent(true);
     }, 300); // You can adjust the duration as needed
 
