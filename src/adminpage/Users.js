@@ -643,12 +643,12 @@ if (!showContent) {
     </td>
     <td>
   {user.idImage && (
-    <img src={`../uploads/${user.idImage}`} alt={`ID of ${user.firstName}`} style={{width: '350px', height: '160px'}} />
+    <img src={`https://hettrrms-server.onrender.com/uploads/${user.idImage}`} alt={`ID of ${user.firstName}`} style={{width: '350px', height: '160px'}} />
   )}
 </td>
 <td>
   {user.userImage && (
-    <img src={`../uploads/${user.userImage}`} alt={`User Image}`} style={{width: '150px', height: '160px'}} />
+    <img src={`https://hettrrms-server.onrender.com/uploads/${user.userImage}`} alt={`User Image}`} style={{width: '150px', height: '160px'}} />
   )}
 </td>
     <td>{user.role}</td>
