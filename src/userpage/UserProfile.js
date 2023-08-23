@@ -187,8 +187,11 @@ const UserProfile = () => {
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
         setId(data.id);
+        console.log('ID:', data.id);
         setFirstName(data.firstName);
+        console.log('First Name:', data.firstName);
         setLastName(data.lastName)
+        console.log('Last Name:', data.lastName);
         setEmail(data.email);
         setPhoneNumber(data.phoneNumber);
         setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
