@@ -271,14 +271,18 @@ const UserProfile = () => {
 {isEditFormOpen && (
   <form className="formedituser" onSubmit={handleEditFormSubmit}>
     <h2>Update Information</h2><div style={{marginTop:'15px'}}></div>
-    <input
-    className='editfn'
-      type="text"
-      value={editFirstName}
-      onChange={(e) => setEditFirstName(e.target.value)}
-      placeholder="First Name"
-      required
-    /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editFirstName">First Name:</label>
+<input
+  className='editfn'
+  type="text"
+  id="editFirstName"
+  value={editFirstName}
+  onChange={(e) => setEditFirstName(e.target.value)}
+  placeholder="First Name"
+  required
+/>
+<div style={{marginTop:'10px'}}></div>
+<label htmlFor="editLastName">Last Name:</label>
     <input
     className='editln'
       type="text"
@@ -287,6 +291,7 @@ const UserProfile = () => {
       placeholder="Last Name"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editPhoneNumber">Phone Number:</label>
     <input
     className='editpn'
       type="text"
@@ -295,6 +300,7 @@ const UserProfile = () => {
       placeholder="Phone Number"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editEmail">Email:</label>
     <input
     className='editem'
       type="email"
@@ -303,6 +309,7 @@ const UserProfile = () => {
       placeholder="Email"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editbirthdate">Birthdate:</label>
     <input
     className='editbd'
     style={{marginTop:'10px', width:'62%'}}
@@ -312,6 +319,7 @@ const UserProfile = () => {
       placeholder="Birthdate"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editAge">Age:</label>
     <input
     className='editage'
       type="text"
@@ -320,6 +328,7 @@ const UserProfile = () => {
       placeholder="Age"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="editGender">Gender:</label>
     <input
     className='editgd'
       type="text"
@@ -344,6 +353,7 @@ const UserProfile = () => {
   <form className="password-form" onSubmit={handlePasswordFormSubmit}>
     <h2>Change Password</h2>
     <div style={{marginTop:'15px'}}></div>
+    <label htmlFor="currentPassword">Current Password:</label>
     <input
     className='changepass'
       type="password"
@@ -352,6 +362,7 @@ const UserProfile = () => {
       placeholder="Current Password"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="newPassword">New Password:</label>
     <input
     className='changenewpass'
       type="password"
@@ -360,6 +371,7 @@ const UserProfile = () => {
       placeholder="New Password"
       required
     /><div style={{marginTop:'10px'}}></div>
+    <label htmlFor="confirmNewPassword">Confirm New Password:</label>
     <input
     className='changeconfirmpass'
       type="password"
