@@ -389,7 +389,7 @@ export default function CustomerProof() {
               <b>Payment Proof:</b>
             </p>
             <img
-              src={`../${proof.payment_proof_path}`}
+              src={`https://hettrrms-server.onrender.com/${proof.payment_proof_path}`}
               alt="Payment proof"
               style={{ maxWidth: "200px", height: "auto" }}
             />
