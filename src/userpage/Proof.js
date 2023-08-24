@@ -33,7 +33,7 @@ const Proof = () => {
   return (
     <div>
       <Userapp />
-      <div className="container">
+      <div className="container-proof">
         <ul className="proof-list">
           <div className="proof-title">
             My Proof of Payment for Bookings

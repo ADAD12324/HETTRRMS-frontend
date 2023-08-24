@@ -1,7 +1,7 @@
 /* Proof.css */
 
 /* Base styles for larger screens */
-.container {
+.container-proof {
   display: flex;
   justify-content: center;
   margin-top: 50px;
@@ -45,7 +45,7 @@
 
 /* Responsive styles for smaller screens */
 @media screen and (max-width: 768px) {
-  .container {
+  .container-proof {
     margin-top: 20px;
   }
 
