@@ -33,6 +33,25 @@ const UserProfile = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [isSettingsDropdownOpen, setIsSettingsDropdownOpen] = useState(false);
   const [isPasswordFormOpen, setIsPasswordFormOpen] = useState(false);
+  const [user, setUser] = useState({});
+
+  useEffect(() => {
+    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setUser(data);
+        setShowContent(true);
+      })
+      .catch(error => {
+        console.error(error);
+        // Handle error, redirect, or show error message
+      });
+  }, []);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
@@ -185,9 +204,7 @@ const UserProfile = () => {
     fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
-        setFirstName(data.firstName);
-        setLastName(data.lastName);
-        setEmail(data.email);
+        
         // Set the default values for the edit form
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -231,7 +248,7 @@ const UserProfile = () => {
       </div>
       <div className="profbox">
         <h3 className="userid">User Id:{id}</h3>
-        <div className="userName">{firstName} {lastName}</div>
+        <div className="userName">{user.firstName} {user.lastName}</div>
         <div className="avatar-container">
           <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
           <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
@@ -240,18 +257,15 @@ const UserProfile = () => {
         </div>
       </div>
       <div className="userinfo">
-      <div className="userinfo-item">
-    <span className="info-label">First Name:</span>
-    <span className="info-value">{firstName}</span>
-  </div>
-  <div className="userinfo-item">
-    <span className="info-label">Last Name:</span>
-    <span className="info-value">{lastName}</span>
-  </div>
-  <div className="userinfo-item">
-    <span className="info-label">Email:</span>
-    <span className="info-value">{email}</span>
-  </div>
+      <div className="text2">User Information</div>
+        <div className="fname"><b>First Name:</b> {user.firstName}</div>
+        <div className="lname"><b>Last Name:</b> {user.lastName}</div>
+        <div className="bday"><b>Birthdate:</b> {birthdate}</div>
+        <div className="age"><b>Age:</b> {age}</div>
+        <div className="gender"><b>Gender:</b> {gender}</div>
+        <div className="text3">Contact Information</div>
+        <div className="phonenum"><b>Phone Number:</b> {phoneNumber}</div>
+        <div className="email"><b>Email:</b> {email}</div>
       </div>
 
       {isImageFormOpen && (
