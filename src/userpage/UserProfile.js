@@ -108,7 +108,9 @@ const UserProfile = () => {
   
         setIsEditFormOpen(false); // Close the edit form
       })
-     
+      .catch((error) => {
+        console.error(error);
+      });
   };
    
   const handleEditFormSubmit = (event) => {
@@ -191,7 +193,9 @@ const UserProfile = () => {
         setEditAge(data.age);
         setEditGender(data.gender);
       })
-   
+      .catch((error) => {
+        console.error(error);
+      });
   }, []);
 
   const handleSettingsClick = () => {
