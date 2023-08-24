@@ -33,41 +33,11 @@ const UserProfile = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [isSettingsDropdownOpen, setIsSettingsDropdownOpen] = useState(false);
   const [isPasswordFormOpen, setIsPasswordFormOpen] = useState(false);
-  const [user, setUser] = useState({});
-
-  useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch user data');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setUser(data);
-        setShowContent(true);
-      })
-      .catch(error => {
-        console.error(error);
-        // Handle error, redirect, or show error message
-      });
-  }, []);
 
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
   }
-  const [showContent, setShowContent] = useState(false);
 
-  useEffect(() => {
-    // When the component mounts, wait for a short duration and then show the content
-    const timer = setTimeout(() => {
-      
-      setShowContent(true);
-    }, 300); // You can adjust the duration as needed
-
-    // Clean up the timer when the component unmounts
-    return () => clearTimeout(timer);
-  }, []);
   const handleImageFormSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(); 
@@ -79,7 +49,7 @@ const UserProfile = () => {
       credentials: 'include'
     };
 
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
+    fetch(`/api/users/${id}/image`, requestOptions)
       .then(response => {
         if (!response.ok) {
           throw new Error('Failed to update user image');
@@ -110,7 +80,7 @@ const UserProfile = () => {
       }),
     };
   
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, requestOptions)
+    fetch(`/api/users/${id}`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update user');
@@ -126,7 +96,7 @@ const UserProfile = () => {
         setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
         setAge(data.age);
         setGender(data.gender);
-      
+  
         // Update the edit form values
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -135,7 +105,7 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
-      
+  
         setIsEditFormOpen(false); // Close the edit form
       })
       .catch((error) => {
@@ -166,7 +136,7 @@ const UserProfile = () => {
       }),
     };
   
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/password`, requestOptions)
+    fetch(`/api/users/${id}/password`, requestOptions)
       .then((response) => {
         if (!response.ok) {
           throw new Error('Failed to update password');
@@ -201,19 +171,19 @@ const UserProfile = () => {
 
   
   useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/users', { credentials: 'include' })
+    fetch('/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
+        setUserImageUrl(data.userImageUrl);
         setId(data.id);
         setFirstName(data.firstName);
-        setLastName(data.lastName);
-        setUserImageUrl(data.userImage);
+        setLastName(data.lastName)
         setEmail(data.email);
         setPhoneNumber(data.phoneNumber);
-        setBirthdate(data.birthdate);
+        setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
         setAge(data.age);
         setGender(data.gender);
-  
+
         // Set the default values for the edit form
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -222,17 +192,27 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
-  
-        setShowContent(true);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
+
   const handleSettingsClick = () => {
     setIsSettingsDropdownOpen(!isSettingsDropdownOpen);
   };
-  
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    // When the component mounts, wait for a short duration and then show the content
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 300); // You can adjust the duration as needed
+
+    // Clean up the timer when the component unmounts
+    return () => clearTimeout(timer);
+  }, []);
+
   if (!showContent) {
     return <Loading/>;
   }
@@ -255,25 +235,26 @@ const UserProfile = () => {
         )}
       </div>
       <div className="profbox">
-      <div className="userid">User Id: {id}</div>
-<div className="userName">{firstName} {lastName}</div>
-<div className="avatar-container">
-  <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
-  <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
-    <MdCameraAlt size={30} />
-  </div>
-</div>
+        <h3 className="userid">User Id:{id}</h3>
+        <div className="userName">{firstName} {lastName}</div>
+        <div className="avatar-container">
+          <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
+          <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
+            <MdCameraAlt size={30} />
+          </div>
+        </div>
       </div>
       <div className="userinfo">
-      <div className="text2">User Information</div>
-        <div className="fname"><b>First Name:</b> {user.firstName}</div>
-        <div className="lname"><b>Last Name:</b> {user.lastName}</div>
+        <div className="text2">User Information</div>
+        <div className="fname"><b>First Name:</b> {firstName}</div>
+        <div className="lname"><b>Last Name:</b> {lastName}</div>
         <div className="bday"><b>Birthdate:</b> {birthdate}</div>
         <div className="age"><b>Age:</b> {age}</div>
         <div className="gender"><b>Gender:</b> {gender}</div>
         <div className="text3">Contact Information</div>
         <div className="phonenum"><b>Phone Number:</b> {phoneNumber}</div>
         <div className="email"><b>Email:</b> {email}</div>
+        
       </div>
 
       {isImageFormOpen && (
@@ -288,18 +269,14 @@ const UserProfile = () => {
 {isEditFormOpen && (
   <form className="formedituser" onSubmit={handleEditFormSubmit}>
     <h2>Update Information</h2><div style={{marginTop:'15px'}}></div>
-    <label htmlFor="editFirstName">First Name:</label>
-<input
-  className='editfn'
-  type="text"
-  id="editFirstName"
-  value={editFirstName}
-  onChange={(e) => setEditFirstName(e.target.value)}
-  placeholder="First Name"
-  required
-/>
-<div style={{marginTop:'10px'}}></div>
-<label htmlFor="editLastName">Last Name:</label>
+    <input
+    className='editfn'
+      type="text"
+      value={editFirstName}
+      onChange={(e) => setEditFirstName(e.target.value)}
+      placeholder="First Name"
+      required
+    /><div style={{marginTop:'10px'}}></div>
     <input
     className='editln'
       type="text"
@@ -308,7 +285,6 @@ const UserProfile = () => {
       placeholder="Last Name"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="editPhoneNumber">Phone Number:</label>
     <input
     className='editpn'
       type="text"
@@ -317,7 +293,6 @@ const UserProfile = () => {
       placeholder="Phone Number"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="editEmail">Email:</label>
     <input
     className='editem'
       type="email"
@@ -326,7 +301,6 @@ const UserProfile = () => {
       placeholder="Email"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="editbirthdate">Birthdate:</label>
     <input
     className='editbd'
     style={{marginTop:'10px', width:'62%'}}
@@ -336,7 +310,6 @@ const UserProfile = () => {
       placeholder="Birthdate"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="editAge">Age:</label>
     <input
     className='editage'
       type="text"
@@ -345,7 +318,6 @@ const UserProfile = () => {
       placeholder="Age"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="editGender">Gender:</label>
     <input
     className='editgd'
       type="text"
@@ -370,7 +342,6 @@ const UserProfile = () => {
   <form className="password-form" onSubmit={handlePasswordFormSubmit}>
     <h2>Change Password</h2>
     <div style={{marginTop:'15px'}}></div>
-    <label htmlFor="currentPassword">Current Password:</label>
     <input
     className='changepass'
       type="password"
@@ -379,7 +350,6 @@ const UserProfile = () => {
       placeholder="Current Password"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="newPassword">New Password:</label>
     <input
     className='changenewpass'
       type="password"
@@ -388,7 +358,6 @@ const UserProfile = () => {
       placeholder="New Password"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <label htmlFor="confirmNewPassword">Confirm New Password:</label>
     <input
     className='changeconfirmpass'
       type="password"
