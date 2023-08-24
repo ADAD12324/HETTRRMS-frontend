@@ -201,7 +201,7 @@ const UserProfile = () => {
 
   
   useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+    fetch('https://hettrrms-server.onrender.com/api/users', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setId(data.id);
