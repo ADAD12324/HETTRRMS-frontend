@@ -204,7 +204,16 @@ const UserProfile = () => {
     fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
-        
+        setId(data.id);
+        setFirstName(data.firstName);
+        setLastName(data.lastName);
+        setUserImageUrl(data.userImage);
+        setEmail(data.email);
+        setPhoneNumber(data.phoneNumber);
+        setBirthdate(data.birthdate);
+        setAge(data.age);
+        setGender(data.gender);
+  
         // Set the default values for the edit form
         setEditFirstName(data.firstName);
         setEditLastName(data.lastName);
@@ -213,14 +222,13 @@ const UserProfile = () => {
         setEditBirthdate(data.birthdate);
         setEditAge(data.age);
         setEditGender(data.gender);
-
+  
         setShowContent(true);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-
   const handleSettingsClick = () => {
     setIsSettingsDropdownOpen(!isSettingsDropdownOpen);
   };
@@ -247,14 +255,14 @@ const UserProfile = () => {
         )}
       </div>
       <div className="profbox">
-        <h3 className="userid">User Id:{id}</h3>
-        <div className="userName">{user.firstName} {user.lastName}</div>
-        <div className="avatar-container">
-          <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
-          <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
-            <MdCameraAlt size={30} />
-          </div>
-        </div>
+      <div className="userid">User Id: {id}</div>
+<div className="userName">{firstName} {lastName}</div>
+<div className="avatar-container">
+  <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
+  <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
+    <MdCameraAlt size={30} />
+  </div>
+</div>
       </div>
       <div className="userinfo">
       <div className="text2">User Information</div>
