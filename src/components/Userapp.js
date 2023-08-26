@@ -164,16 +164,14 @@ export default function Userapp() {
   const [userImageUrl, setUserImageUrl] = useState('');
 
   useEffect(() => {
-    fetch(`${backendUrl}/api/user`)
-      .then((response) => response.json())
-      .then((data) => {
-        setUserImageUrl(data.userImageUrl);
+    axios.get(`${backendUrl}/api/user`)
+      .then((response) => {
+        setUserImageUrl(response.data.userImageUrl);
       })
       .catch((error) => {
         console.error(error);
       });
   }, []);
-
   const handleLogout = () => {
     axios.get(`${backendUrl}/api/logout`)
       .then(() => {
