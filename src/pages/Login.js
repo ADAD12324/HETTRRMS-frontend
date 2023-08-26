@@ -35,11 +35,13 @@ const Login = () => {
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
-        if (response.data.role === 'user') {
-          navigate('/user');
-        } else if (response.data.role === 'admin') {
-          navigate('/admin');
-        }
+        // After storing user details
+if (response.data.role === 'user') {
+  // Navigate to Usermain and pass user details as props
+  navigate('/user', { state: { user } });
+} else if (response.data.role === 'admin') {
+  navigate('/admin');
+}
     
         // Store user data in session storage
         sessionStorage.setItem("token", response.data.token);

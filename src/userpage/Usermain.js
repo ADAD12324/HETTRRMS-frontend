@@ -121,7 +121,8 @@ const Usermain = () => {
   const filteredNational = national.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
   const filteredInternational = international.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
   const [showContent, setShowContent] = useState(false);
-
+  const location = useNavigate();
+  const user = location.state?.user;
   useEffect(() => {
     // When the component mounts, wait for a short duration and then show the content
     const timer = setTimeout(() => {
@@ -143,7 +144,7 @@ const Usermain = () => {
         <span className="quote-text">"Travel is an investment in yourself."</span>
       </div>
       <h1 className='usertxt'>Hi! Welcome {username}</h1>
-
+      <h1 className='usertxt'>Hi! Welcome {user ? user.username : 'User'}</h1>
       <input
         type="text"
         value={searchTerm}
