@@ -3,7 +3,6 @@ import Userapp from '../components/Userapp';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Button, Grid } from '@material-ui/core';
 import axios from 'axios';
-
 import "../css/usermain.css";
 import Loading from '../components/Loading';
 
@@ -11,7 +10,7 @@ import Loading from '../components/Loading';
 const PackageCard = ({ id, name, description, price, imageUrl, itinerary, onViewDetails, isNational, isInternational }) => {
   const handleViewDetailsClick = () => {
     onViewDetails(id, name, description, price, imageUrl, itinerary);
-  };
+  }; 
 
   return (
     <Card className="package-card">
@@ -35,7 +34,7 @@ const PackageCard = ({ id, name, description, price, imageUrl, itinerary, onView
   );
 }; 
 
-const Usermain = ({ userId }) => {
+const Usermain = () => {
   const [packages, setPackages] = useState([]);
   const [national, setNational] = useState([]);
   const [international, setInternational] = useState([]);
