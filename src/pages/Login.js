@@ -31,8 +31,7 @@ const Login = () => {
   
     try {
       const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
-  
-      // Check if login was successful
+    
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
@@ -41,12 +40,16 @@ const Login = () => {
         } else if (response.data.role === 'admin') {
           navigate('/admin');
         }
-  
+    
         // Store user data in session storage
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("username", username);
         sessionStorage.setItem("userId", response.data.userId);
-  
+    
+        // Store user details
+        const user = response.data.user;
+        sessionStorage.setItem("userDetails", JSON.stringify(user));
+    
         displayToast('success', 'Signed in successfully');
       }
     } catch (error) {
