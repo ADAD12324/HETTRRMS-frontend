@@ -116,7 +116,6 @@ const Login = () => {
           <button className='logsubmit' type="submit">Log in</button>
           <Link className="regbtn" to="/Register">Sign Up?</Link>
           <Link className="forgot-password-link" to="/forgot-password">Forgot Password?</Link>
-        
         </form>
       </div>
       <Footer className="footer"/>
