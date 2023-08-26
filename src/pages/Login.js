@@ -23,7 +23,7 @@ const Login = () => {
   
     // Validate the form inputs
     const validationErrors = validateLoginForm(username, password);
-  
+   
     if (validationErrors.length > 0) {
       setErrors(validationErrors);
       return;
@@ -31,21 +31,22 @@ const Login = () => {
   
     try {
       const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
+
   
       // Check if login was successful
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
+        // Store user data in localStorage
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", username);
+        localStorage.setItem("userId", response.data.userId);
+  
         if (response.data.role === 'user') {
           navigate('/user');
         } else if (response.data.role === 'admin') {
           navigate('/admin');
         }
-  
-        // Store user data in session storage
-        sessionStorage.setItem("token", response.data.token);
-        sessionStorage.setItem("username", username);
-        sessionStorage.setItem("userId", response.data.userId);
   
         displayToast('success', 'Signed in successfully');
       }
