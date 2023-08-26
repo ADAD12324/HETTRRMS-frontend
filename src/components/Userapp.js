@@ -20,6 +20,7 @@ import { TbPackage } from "react-icons/tb";
 import { GrStatusUnknown } from "react-icons/gr";
 import { RiReservedLine } from "react-icons/ri";
 import iconImage from "../assets/proof.png";
+import config from './config';
 
 export default function Userapp() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -27,7 +28,7 @@ export default function Userapp() {
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const [notifications, setNotifications] = useState([]);
   const [unreadCount, setUnreadCount] = useState(0);
-
+  const backendUrl = config.url;
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
@@ -119,7 +120,7 @@ export default function Userapp() {
   useEffect(() => {
     const userId = localStorage.getItem('userId');
     axios
-      .get(`https://hettrrms-server.onrender.com/api/notifications/${userId}`)
+      .get(`${backendUrl}/api/notifications/${userId}`)
       .then((response) => {
         const updatedNotifications = response.data.map((notification) => {
           const readStatus = localStorage.getItem(`read_${notification.id}`);
@@ -163,7 +164,7 @@ export default function Userapp() {
   const [userImageUrl, setUserImageUrl] = useState('');
 
   useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+    fetch(`${backendUrl}/api/user`)
       .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
@@ -174,7 +175,7 @@ export default function Userapp() {
   }, []);
 
   const handleLogout = () => {
-    axios.get('https://hettrrms-server.onrender.com/api/logout')
+    axios.get(`${backendUrl}/api/logout`)
       .then(() => {
         localStorage.removeItem('userId');
         navigate('/');
