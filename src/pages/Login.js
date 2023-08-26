@@ -35,25 +35,27 @@ const Login = () => {
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
-        // After storing user details
-if (response.data.role === 'user') {
-  // Navigate to Usermain and pass user details as props
-  navigate('/user', { state: { user } });
-} else if (response.data.role === 'admin') {
-  navigate('/admin');
-}
-    
+        if (response.data.role === 'user') {
+          navigate('/user');
+        } else if (response.data.role === 'admin') {
+          navigate('/admin');
+        }
+      
         // Store user data in session storage
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("username", username);
         sessionStorage.setItem("userId", response.data.userId);
-        sessionStorage.setItem("firstName", response.data.user.firstName); // Add this line
-        sessionStorage.setItem("lastName", response.data.user.lastName); // Add this line
-        // Store user details
-        const user = response.data.user;
-        sessionStorage.setItem("userDetails", JSON.stringify(user));
-    
+        sessionStorage.setItem("firstName", response.data.user.firstName);
+        sessionStorage.setItem("lastName", response.data.user.lastName);
+      
         displayToast('success', 'Signed in successfully');
+      
+        // Add console logs to check if data is stored correctly
+        console.log("Stored token:", sessionStorage.getItem("token"));
+        console.log("Stored username:", sessionStorage.getItem("username"));
+        console.log("Stored userId:", sessionStorage.getItem("userId"));
+        console.log("Stored firstName:", sessionStorage.getItem("firstName"));
+        console.log("Stored lastName:", sessionStorage.getItem("lastName"));
       }
     } catch (error) {
       console.log(error);
