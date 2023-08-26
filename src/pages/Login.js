@@ -47,7 +47,8 @@ if (response.data.role === 'user') {
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("username", username);
         sessionStorage.setItem("userId", response.data.userId);
-    
+        sessionStorage.setItem("firstName", response.data.user.firstName); // Add this line
+        sessionStorage.setItem("lastName", response.data.user.lastName); // Add this line
         // Store user details
         const user = response.data.user;
         sessionStorage.setItem("userDetails", JSON.stringify(user));
