@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
@@ -8,14 +8,13 @@ import Footer from '../components/Footer';
 import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import config from '../components/config';
 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const navigate = useNavigate();
-  const backendUrl = config.url;
+
   const validateLoginForm = require("./validateLoginForm");
   
   const handleFormSubmit = async (event) => {
@@ -23,7 +22,7 @@ const Login = () => {
   
     // Validate the form inputs
     const validationErrors = validateLoginForm(username, password);
-  
+   
     if (validationErrors.length > 0) {
       setErrors(validationErrors);
       return;
@@ -31,31 +30,23 @@ const Login = () => {
   
     try {
       const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
-    
+  
+      // Check if login was successful
       if (response.data.error) {
         setErrors([response.data.error]);
       } else {
+        // Store user data in localStorage
+        localStorage.setItem("token", response.data.token);
+        localStorage.setItem("username", username);
+        localStorage.setItem("userId", response.data.userId);
+  
         if (response.data.role === 'user') {
           navigate('/user');
         } else if (response.data.role === 'admin') {
           navigate('/admin');
         }
-      
-        // Store user data in session storage
-        sessionStorage.setItem("token", response.data.token);
-        sessionStorage.setItem("username", username);
-        sessionStorage.setItem("userId", response.data.userId);
-        sessionStorage.setItem("firstName", response.data.user.firstName);
-        sessionStorage.setItem("lastName", response.data.user.lastName);
-      
+  
         displayToast('success', 'Signed in successfully');
-      
-        // Add console logs to check if data is stored correctly
-        console.log("Stored token:", sessionStorage.getItem("token"));
-        console.log("Stored username:", sessionStorage.getItem("username"));
-        console.log("Stored userId:", sessionStorage.getItem("userId"));
-        console.log("Stored firstName:", sessionStorage.getItem("firstName"));
-        console.log("Stored lastName:", sessionStorage.getItem("lastName"));
       }
     } catch (error) {
       console.log(error);
@@ -82,7 +73,7 @@ const Login = () => {
     });
   };
   
-  const videoUrl=`${backendUrl}/images/ulol.mp4`;
+  const videoUrl='https://hettrrms-server.onrender.com/images/ulol.mp4';
 
   return (
     <div className="login-page">
@@ -124,6 +115,7 @@ const Login = () => {
           <button className='logsubmit' type="submit">Log in</button>
           <Link className="regbtn" to="/Register">Sign Up?</Link>
           <Link className="forgot-password-link" to="/forgot-password">Forgot Password?</Link>
+        
         </form>
       </div>
       <Footer className="footer"/>

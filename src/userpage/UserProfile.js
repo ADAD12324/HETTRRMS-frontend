@@ -171,14 +171,13 @@ const UserProfile = () => {
 
   
   useEffect(() => {
-    // Fetch user information from the backend
-    fetch('https://hettrrms-server.onrender.com/login/user', { credentials: 'include' })
+    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
         setId(data.id);
         setFirstName(data.firstName);
-        setLastName(data.lastName);
+        setLastName(data.lastName)
         setEmail(data.email);
         setPhoneNumber(data.phoneNumber);
         setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
