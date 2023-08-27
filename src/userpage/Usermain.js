@@ -143,7 +143,7 @@ const Usermain = ({ userId }) => {
         <span className="quote-text">"Travel is an investment in yourself."</span>
       </div>
       <h1 className='usertxt'>Hi! Welcome {username}</h1>
-      <h1 className='usertxt'>Hi! Welcome {firstName} {lastName}</h1>
+      
       <input
         type="text"
         value={searchTerm}
