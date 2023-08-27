@@ -115,6 +115,8 @@ const Usermain = ({ userId }) => {
   };
 
   const username = sessionStorage.getItem('username');
+  const firstName = sessionStorage.getItem('firstname');
+  const lastName = sessionStorage.getItem('lastname'); 
   const img1 = 'https://hettrrms-server.onrender.com/images/banner.jpg';
   const [searchTerm, setSearchTerm] = useState('');
   const filteredPackages = packages.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -142,7 +144,7 @@ const Usermain = ({ userId }) => {
       <div className="quote-overlay">
         <span className="quote-text">"Travel is an investment in yourself."</span>
       </div>
-      <h1 className='usertxt'>Hi! Welcome {username}</h1>
+      <h1 className='usertxt'>Hi! Welcome {username} {firstName} {lastName}!</h1>
       
       <input
         type="text"
