@@ -38,7 +38,8 @@ const Usermain = () => {
   const [packages, setPackages] = useState([]);
   const [national, setNational] = useState([]);
   const [international, setInternational] = useState([]);
-  
+  const firstName = sessionStorage.getItem('firstName');
+  const lastName = sessionStorage.getItem('lastName');
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -136,8 +137,6 @@ const Usermain = () => {
   if (!showContent) {
     return <Loading />;
   }
-  const firstName = sessionStorage.getItem('firstName');
-  const lastName = sessionStorage.getItem('lastName');
   return (
     <div className="usermain">
       <Userapp />
