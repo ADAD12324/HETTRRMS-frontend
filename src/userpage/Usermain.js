@@ -116,7 +116,7 @@ const Usermain = () => {
     });
   };
 
-  const username = localStorage.getItem('username');
+  const username = sessionStorage.getItem('username');
   const img1 = 'https://hettrrms-server.onrender.com/images/banner.jpg';
   const [searchTerm, setSearchTerm] = useState('');
   const filteredPackages = packages.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));

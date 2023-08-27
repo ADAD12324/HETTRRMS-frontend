@@ -164,7 +164,7 @@ export default function Userapp() {
   const [userImageUrl, setUserImageUrl] = useState('');
 
   useEffect(() => {
-    axios.get(`${backendUrl}/api/user`)
+    axios.get(`${backendUrl}/login/user`)
       .then((response) => {
         setUserImageUrl(response.data.userImageUrl);
       })
@@ -175,7 +175,7 @@ export default function Userapp() {
   const handleLogout = () => {
     axios.get(`${backendUrl}/api/logout`)
       .then(() => {
-        localStorage.removeItem('userId');
+        sessionStorage.removeItem('userId');
         navigate('/');
       })
       .catch((error) => {
