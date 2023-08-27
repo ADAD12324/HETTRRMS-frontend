@@ -172,7 +172,7 @@ const UserProfile = () => {
   
   useEffect(() => {
     // Fetch user information from the backend
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
+    fetch('https://hettrrms-server.onrender.com/login/user', { credentials: 'include' })
       .then((response) => response.json())
       .then((data) => {
         setUserImageUrl(data.userImageUrl);
