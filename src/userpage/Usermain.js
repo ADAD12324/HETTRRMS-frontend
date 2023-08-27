@@ -1,3 +1,39 @@
+import React, { useEffect, useState } from 'react';
+import Userapp from '../components/Userapp';
+import { useNavigate } from 'react-router-dom';
+import { Card, CardContent, CardMedia, Typography, Button, Grid } from '@material-ui/core';
+import axios from 'axios';
+import "../css/usermain.css";
+import Loading from '../components/Loading';
+
+
+const PackageCard = ({ id, name, description, price, imageUrl, itinerary, onViewDetails, isNational, isInternational }) => {
+  const handleViewDetailsClick = () => {
+    onViewDetails(id, name, description, price, imageUrl, itinerary);
+  }; 
+
+  return (
+    <Card className="package-card">
+      <CardMedia component="img" image={imageUrl} style={{ height: "200px" }} />
+      <CardContent>
+        <Typography variant="h5" component="h2">
+          {name}
+        </Typography>
+        <Typography variant="h6" component="p">
+        ₱{price}
+        </Typography>
+        {isNational ? (
+          <Button onClick={handleViewDetailsClick}>View Details</Button>
+        ) : isInternational ? (
+          <Button onClick={() => handleViewDetailsClick(id, name, description, price, imageUrl, itinerary)}>View Details</Button>
+        ) : (
+          <Button onClick={handleViewDetailsClick}>View Details</Button>
+        )}
+      </CardContent>
+    </Card>
+  );
+}; 
+
 const Usermain = ({ userId }) => {
   const [packages, setPackages] = useState([]);
   const [national, setNational] = useState([]);
