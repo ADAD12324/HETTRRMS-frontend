@@ -115,8 +115,8 @@ const Usermain = ({ userId }) => {
   };
 
   const username = sessionStorage.getItem('username');
-  const firstName = sessionStorage.getItem('firstname');
-  const lastName = sessionStorage.getItem('lastname'); 
+  const firstName = sessionStorage.getItem('firstName'); 
+  const lastName = sessionStorage.getItem('lastName');   
   const img1 = 'https://hettrrms-server.onrender.com/images/banner.jpg';
   const [searchTerm, setSearchTerm] = useState('');
   const filteredPackages = packages.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
