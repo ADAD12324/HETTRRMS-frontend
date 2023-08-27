@@ -36,10 +36,11 @@ const Login = () => {
         setErrors([response.data.error]);
       } else {
         // Store user data in localStorage
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("username", username);
-        localStorage.setItem("userId", response.data.userId);
-  
+        
+       sessionStorage.setItem("username", username);
+        sessionStorage.setItem("userId", response.data.userId);
+        sessionStorage.setItem("firstname",response.data.firstName);
+        
         if (response.data.role === 'user') {
           navigate('/user');
         } else if (response.data.role === 'admin') {
