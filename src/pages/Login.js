@@ -45,8 +45,8 @@ const Login = () => {
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("username", username);
         sessionStorage.setItem("userId", response.data.userId);
-        sessionStorage.setItem("firstName", response.data.firstName);
-        sessionStorage.setItem("lastName", response.data.lastName);
+        sessionStorage.setItem("firstName", response.data.user.firstName);
+        sessionStorage.setItem("lastName", response.data.user.lastName);
       
         displayToast('success', 'Signed in successfully');
       
