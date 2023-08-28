@@ -39,7 +39,7 @@ const Login = () => {
         sessionStorage.setItem("username", response.data.username); // Use username from backend response
         sessionStorage.setItem("userId", response.data.userId);
         sessionStorage.setItem("firstname", response.data.firstName);
-
+        sessionStorage.setItem("lastname", response.data.lastName);
         if (response.data.role === 'user') {
           navigate('/user');
         } else if (response.data.role === 'admin') {
