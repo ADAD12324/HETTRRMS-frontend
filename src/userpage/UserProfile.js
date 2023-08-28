@@ -170,32 +170,27 @@ const UserProfile = () => {
   
 
   
-  useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserImageUrl(data.userImageUrl);
-        setId(data.id);
-        setFirstName(data.firstName);
-        setLastName(data.lastName)
-        setEmail(data.email);
-        setPhoneNumber(data.phoneNumber);
-        setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
-        setAge(data.age);
-        setGender(data.gender);
+  const [userDetails, setUserDetails] = useState({
+    username: '',
+    firstName: '',
+    lastName: '',
+    userId: '',
+  });
 
-        // Set the default values for the edit form
-        setEditFirstName(data.firstName);
-        setEditLastName(data.lastName);
-        setEditPhoneNumber(data.phoneNumber);
-        setEditEmail(data.email);
-        setEditBirthdate(data.birthdate);
-        setEditAge(data.age);
-        setEditGender(data.gender);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+  useEffect(() => {
+    // Fetch user details from sessionStorage
+    const username = sessionStorage.getItem('username');
+    const firstName = sessionStorage.getItem('firstname');
+    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const userId = sessionStorage.getItem('userId');
+
+    // Update state with user details
+    setUserDetails({
+      username,
+      firstName,
+      lastName,
+      userId,
+    });
   }, []);
 
   const handleSettingsClick = () => {
@@ -235,8 +230,8 @@ const UserProfile = () => {
         )}
       </div>
       <div className="profbox">
-        <h3 className="userid">User Id:{id}</h3>
-        <div className="userName">{firstName} {lastName}</div>
+        <h3 className="userid">User Id:{userDetails.userId}</h3>
+        <div className="userName">{userDetails.firstName} {userDetails.lastName}</div>
         <div className="avatar-container">
           <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
           <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
@@ -246,8 +241,8 @@ const UserProfile = () => {
       </div>
       <div className="userinfo">
         <div className="text2">User Information</div>
-        <div className="fname"><b>First Name:</b> {firstName}</div>
-        <div className="lname"><b>Last Name:</b> {lastName}</div>
+        <div className="fname"><b>First Name:</b> {userDetails.firstName}</div>
+        <div className="lname"><b>Last Name:</b> {userDetails.lastName}</div>
         <div className="bday"><b>Birthdate:</b> {birthdate}</div>
         <div className="age"><b>Age:</b> {age}</div>
         <div className="gender"><b>Gender:</b> {gender}</div>
