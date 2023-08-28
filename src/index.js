@@ -70,7 +70,9 @@ const router = createBrowserRouter([
   //user
   {
     path:"/User",
-    element:<Usermain />,
+    element:<Usermain  userId={sessionStorage.getItem('userId')}
+    firstName={sessionStorage.getItem('firstName')}
+    lastName={sessionStorage.getItem('lastName')}/>,
   },
   {
     path:"/MyReservation",

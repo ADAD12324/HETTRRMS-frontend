@@ -34,7 +34,7 @@ const PackageCard = ({ id, name, description, price, imageUrl, itinerary, onView
   );
 }; 
 
-const Usermain = ({ userId }) => {
+const Usermain = ({ userId, firstName, lastName }) => {
   const [packages, setPackages] = useState([]);
   const [national, setNational] = useState([]);
   const [international, setInternational] = useState([]);
@@ -144,7 +144,7 @@ const Usermain = ({ userId }) => {
       <div className="quote-overlay">
         <span className="quote-text">"Travel is an investment in yourself."</span>
       </div>
-      <h1 className='usertxt'>Hi! Welcome {username} {firstName} {lastName}!</h1>
+      <h1 className='usertxt'>Hi! Welcome {username} {firstName} {lastName} {userId}!</h1>
       
       <input
         type="text"
