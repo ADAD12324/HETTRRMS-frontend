@@ -34,7 +34,7 @@ const PackageCard = ({ id, name, description, price, imageUrl, itinerary, onView
   );
 }; 
 
-const Usermain = ({ userId, firstName, lastName }) => {
+const Usermain = ({ userId }) => {
   const [packages, setPackages] = useState([]);
   const [national, setNational] = useState([]);
   const [international, setInternational] = useState([]);
@@ -122,7 +122,18 @@ const Usermain = ({ userId, firstName, lastName }) => {
   const filteredNational = national.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
   const filteredInternational = international.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
   const [showContent, setShowContent] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  useEffect(() => {
+    
+    const storedFirstName = sessionStorage.getItem('firstName');
+    const storedLastName = sessionStorage.getItem('lastName');
+    
+    setFirstName(storedFirstName);
+    setLastName(storedLastName);
 
+    // ... Rest of your code ...
+  }, []);
   useEffect(() => {
     // When the component mounts, wait for a short duration and then show the content
     const timer = setTimeout(() => {
