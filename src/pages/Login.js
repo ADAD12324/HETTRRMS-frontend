@@ -40,6 +40,12 @@ const Login = () => {
         sessionStorage.setItem("userId", response.data.userId);
         sessionStorage.setItem("firstname", response.data.firstName);
         sessionStorage.setItem("lastname", response.data.lastName);
+        sessionStorage.setItem("email", response.data.email);
+        sessionStorage.setItem("phoneNumber", response.data.phoneNumber);
+        sessionStorage.setItem("birthdate", response.data.birthdate);
+        sessionStorage.setItem("age", response.data.age);
+        sessionStorage.setItem("gender", response.data.gender);
+        
         if (response.data.role === 'user') {
           navigate('/user');
         } else if (response.data.role === 'admin') {

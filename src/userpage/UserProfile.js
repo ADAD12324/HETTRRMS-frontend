@@ -183,13 +183,22 @@ const UserProfile = () => {
     const firstName = sessionStorage.getItem('firstname');
     const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
     const userId = sessionStorage.getItem('userId');
-
+    const email= sessionStorage.getItem('email');
+    const phoneNumber = sessionStorage.getItem('phoneNumber');
+    const birthdate = sessionStorage.getItem('birthdate');
+    const age = sessionStorage.getItem('age');
+    const gender = sessionStorage.getItem('gender');
     // Update state with user details
     setUserDetails({
       username,
       firstName,
       lastName,
       userId,
+      email,
+      phoneNumber,
+      birthdate,
+      age,
+      gender,
     });
   }, []);
 
@@ -243,12 +252,12 @@ const UserProfile = () => {
         <div className="text2">User Information</div>
         <div className="fname"><b>First Name:</b> {userDetails.firstName}</div>
         <div className="lname"><b>Last Name:</b> {userDetails.lastName}</div>
-        <div className="bday"><b>Birthdate:</b> {birthdate}</div>
-        <div className="age"><b>Age:</b> {age}</div>
-        <div className="gender"><b>Gender:</b> {gender}</div>
+        <div className="bday"><b>Birthdate:</b> {userDetails.birthdate}</div>
+        <div className="age"><b>Age:</b> {userDetails.age}</div>
+        <div className="gender"><b>Gender:</b> {userDetails.gender}</div>
         <div className="text3">Contact Information</div>
-        <div className="phonenum"><b>Phone Number:</b> {phoneNumber}</div>
-        <div className="email"><b>Email:</b> {email}</div>
+        <div className="phonenum"><b>Phone Number:</b> {userDetails.phoneNumber}</div>
+        <div className="email"><b>Email:</b> {userDetails.email}</div>
         
       </div>
 
