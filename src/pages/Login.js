@@ -45,6 +45,7 @@ const Login = () => {
         sessionStorage.setItem("birthdate", response.data.birthdate);
         sessionStorage.setItem("age", response.data.age);
         sessionStorage.setItem("gender", response.data.gender);
+        sessionStorage.setItem("userImage", response.data.userImage);
         
         if (response.data.role === 'user') {
           navigate('/user');

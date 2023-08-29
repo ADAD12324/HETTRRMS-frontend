@@ -188,6 +188,7 @@ const UserProfile = () => {
     const birthdate = sessionStorage.getItem('birthdate');
     const age = sessionStorage.getItem('age');
     const gender = sessionStorage.getItem('gender');
+    const userImage = sessionStorage.getItem('userImage');
     // Update state with user details
     setUserDetails({
       username,
@@ -199,6 +200,7 @@ const UserProfile = () => {
       birthdate,
       age,
       gender,
+      userImage,
     });
   }, []);
 
@@ -242,7 +244,7 @@ const UserProfile = () => {
         <h3 className="userid">User Id:{userDetails.userId}</h3>
         <div className="userName">{userDetails.firstName} {userDetails.lastName}</div>
         <div className="avatar-container">
-          <Avatar alt="User Avatar" className="avatar" src={userImageUrl} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
+          <Avatar alt="User Avatar" className="avatar" src={userDetails.userImage} style={{ width: '180px', height: '180px' }} onClick={() => setIsImageFormOpen(true)} />
           <div className="avatar-icon" onClick={() => setIsImageFormOpen(true)}>
             <MdCameraAlt size={30} />
           </div>
