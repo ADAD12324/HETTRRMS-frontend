@@ -99,7 +99,11 @@ const UserProfile = () => {
         age: data.age,
         gender: data.gender,
       });
-
+      Swal.fire({
+        icon: 'success',
+        title: 'User Details Updated',
+        text: 'Your user details have been updated successfully.',
+      });
       setIsEditFormOpen(false); // Close the edit form
     } catch (error) {
       console.error(error);
