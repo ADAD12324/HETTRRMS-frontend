@@ -160,18 +160,41 @@ export default function Userapp() {
     setNotifications(updatedNotifications);
   };
 
-  const [userImageUrl, setUserImageUrl] = useState('');
+  const [userDetails, setUserDetails] = useState({
+    username: '',
+    firstName: '',
+    lastName: '',
+    userId: '',
+  });
 
   useEffect(() => {
-    fetch('https://hettrrms-server.onrender.com/api/user', { credentials: 'include' })
-      .then((response) => response.json())
-      .then((data) => {
-        setUserImageUrl(data.userImageUrl);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
+    // Fetch user details from sessionStorage
+    const username = sessionStorage.getItem('username');
+    const firstName = sessionStorage.getItem('firstname');
+    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const userId = sessionStorage.getItem('userId');
+    const email= sessionStorage.getItem('email');
+    const phoneNumber = sessionStorage.getItem('phoneNumber');
+    const birthdate = sessionStorage.getItem('birthdate');
+    const age = sessionStorage.getItem('age');
+    const gender = sessionStorage.getItem('gender');
+    const userImage = sessionStorage.getItem('userImage');
+    // Update state with user details
+    setUserDetails({
+      username,
+      firstName,
+      lastName,
+      userId,
+      email,
+      phoneNumber,
+      birthdate,
+      age,
+      gender,
+      userImage,
+    });
   }, []);
+
+ 
 
   const handleLogout = () => {
     axios.get('https://hettrrms-server.onrender.com/api/logout')
@@ -304,7 +327,7 @@ export default function Userapp() {
           <Box sx={{ display: { xs: 'none', md: 'flex', flexGrow: 10 } }}>
             <Avatar
               alt="User Avatar"
-              src={userImageUrl}
+              src={userDetails.userImage}
               sx={{ width: 32, height: 32 }}
               style={{ cursor: 'pointer' }}
               onClick={() => { navigate('/UserProfile') }}
