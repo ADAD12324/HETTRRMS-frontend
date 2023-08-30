@@ -33,7 +33,15 @@ const UserProfile = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [isSettingsDropdownOpen, setIsSettingsDropdownOpen] = useState(false);
   const [isPasswordFormOpen, setIsPasswordFormOpen] = useState(false);
-
+  const [editUserData, setEditUserData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+    birthdate: '',
+    age: '',
+    gender: '',
+  });
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
   }
@@ -64,23 +72,14 @@ const UserProfile = () => {
       .catch(error => console.error(error));
   }
 
-  const handleUpdateUser = async (event) => {
+  const handleEditFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          id,
-          firstName: editFirstName,
-          lastName: editLastName,
-          email: editEmail,
-          phoneNumber: editPhoneNumber,
-          birthdate: editBirthdate,
-          age: editAge,
-          gender: editGender,
-        }),
+        body: JSON.stringify(editUserData),
       });
 
       if (!response.ok) {
@@ -90,17 +89,22 @@ const UserProfile = () => {
       const data = await response.json();
 
       // Update the user information
-      setUserDetails(data);
+      setUserDetails({
+        ...userDetails,
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        birthdate: data.birthdate,
+        age: data.age,
+        gender: data.gender,
+      });
 
       setIsEditFormOpen(false); // Close the edit form
     } catch (error) {
       console.error(error);
       // Handle error appropriately
     }
-  };
-  const handleEditFormSubmit = (event) => {
-    event.preventDefault();
-    handleUpdateUser();
   };
 
   const handlePasswordFormSubmit = (event) => {
