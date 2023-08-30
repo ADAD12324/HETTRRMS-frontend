@@ -271,32 +271,32 @@ const UserProfile = () => {
     <input
     className='editfn'
       type="text"
-      value={editFirstName}
-      onChange={(e) => setEditFirstName(e.target.value)}
+      value={editUserData.firstName}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, firstName: e.target.value }))}
       placeholder="First Name"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editln'
       type="text"
-      value={editLastName}
-      onChange={(e) => setEditLastName(e.target.value)}
+      value={editUserData.lastName}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, laststName: e.target.value }))}
       placeholder="Last Name"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editpn'
       type="text"
-      value={editPhoneNumber}
-      onChange={(e) => setEditPhoneNumber(e.target.value)}
+      value={editUserData.phoneNumber}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, phoneNumber: e.target.value }))}
       placeholder="Phone Number"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editem'
       type="email"
-      value={editEmail}
-      onChange={(e) => setEditEmail(e.target.value)}
+      value={editUserData.email}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, email: e.target.value }))}
       placeholder="Email"
       required
     /><div style={{marginTop:'10px'}}></div>
@@ -304,24 +304,24 @@ const UserProfile = () => {
     className='editbd'
     style={{marginTop:'10px', width:'62%'}}
       type="date"
-      value={editBirthdate}
-      onChange={(e) => setEditBirthdate(e.target.value)}
+      value={editUserData.birthdate}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, birthdate: e.target.value }))}
       placeholder="Birthdate"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editage'
       type="text"
-      value={editAge}
-      onChange={(e) => setEditAge(e.target.value)}
+      value={editUserData.age}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, age: e.target.value }))}
       placeholder="Age"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editgd'
       type="text"
-      value={editGender}
-      onChange={(e) => setEditGender(e.target.value)}
+      value={editUserData.gender}
+      onChange={(e) => setEditUserData(prevData => ({ ...prevData, gender: e.target.value }))}
       placeholder="Gender"
       required
     /><div style={{marginTop:'10px'}}></div>
