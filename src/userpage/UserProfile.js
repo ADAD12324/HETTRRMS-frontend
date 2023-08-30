@@ -181,11 +181,16 @@ const UserProfile = () => {
     // Fetch user details from sessionStorage
     const username = sessionStorage.getItem('username');
     const firstName = sessionStorage.getItem('firstname');
-    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const lastName = sessionStorage.getItem('lastname'); 
     const userId = sessionStorage.getItem('userId');
     const email= sessionStorage.getItem('email');
     const phoneNumber = sessionStorage.getItem('phoneNumber');
-    const birthdate = sessionStorage.getItem('birthdate');
+    const parsedBirthdate = new Date(userDetails.birthdate);
+    const formattedBirthdate = parsedBirthdate.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    });
     const age = sessionStorage.getItem('age');
     const gender = sessionStorage.getItem('gender');
     const userImage = sessionStorage.getItem('userImage');
@@ -197,7 +202,7 @@ const UserProfile = () => {
       userId,
       email,
       phoneNumber,
-      birthdate,
+      birthdate: formattedBirthdate,
       age,
       gender,
       userImage,
