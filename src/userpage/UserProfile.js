@@ -64,55 +64,40 @@ const UserProfile = () => {
       .catch(error => console.error(error));
   }
 
-  const handleUpdateUser = () => {
-    const requestOptions = {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        id: id,
-        firstName: editFirstName,
-        lastName: editLastName,
-        email: editEmail,
-        phoneNumber: editPhoneNumber,
-        birthdate: editBirthdate,
-        age: editAge,
-        gender: editGender,
-      }),
-    };
-  
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, requestOptions)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Failed to update user');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // Update the user information on the frontend if required
-        setFirstName(data.firstName);
-        setLastName(data.lastName);
-        setPhoneNumber(data.phoneNumber);
-        setEmail(data.email);
-        setBirthdate(new Date(data.birthdate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }));
-        setAge(data.age);
-        setGender(data.gender);
-  
-        // Update the edit form values
-        setEditFirstName(data.firstName);
-        setEditLastName(data.lastName);
-        setEditPhoneNumber(data.phoneNumber);
-        setEditEmail(data.email);
-        setEditBirthdate(data.birthdate);
-        setEditAge(data.age);
-        setEditGender(data.gender);
-  
-        setIsEditFormOpen(false); // Close the edit form
-      })
-      .catch((error) => {
-        console.error(error);
+  const handleUpdateUser = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          id,
+          firstName: editFirstName,
+          lastName: editLastName,
+          email: editEmail,
+          phoneNumber: editPhoneNumber,
+          birthdate: editBirthdate,
+          age: editAge,
+          gender: editGender,
+        }),
       });
+
+      if (!response.ok) {
+        throw new Error('Failed to update user');
+      }
+
+      const data = await response.json();
+
+      // Update the user information
+      setUserDetails(data);
+
+      setIsEditFormOpen(false); // Close the edit form
+    } catch (error) {
+      console.error(error);
+      // Handle error appropriately
+    }
   };
-   
   const handleEditFormSubmit = (event) => {
     event.preventDefault();
     handleUpdateUser();

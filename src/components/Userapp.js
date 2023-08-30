@@ -117,12 +117,12 @@ export default function Userapp() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     axios
       .get(`https://hettrrms-server.onrender.com/api/notifications/${userId}`)
       .then((response) => {
         const updatedNotifications = response.data.map((notification) => {
-          const readStatus = localStorage.getItem(`read_${notification.id}`);
+          const readStatus = sessionStorage.getItem(`read_${notification.id}`);
           return {
             ...notification,
             read: readStatus ? JSON.parse(readStatus) : false,
@@ -148,7 +148,7 @@ export default function Userapp() {
   const handleNotificationClick = (id) => {
     const updatedNotifications = notifications.map((notification) => {
       if (notification.id === id) {
-        localStorage.setItem(`read_${notification.id}`, true);
+        sessionStorage.setItem(`read_${notification.id}`, true);
         return {
           ...notification,
           read: true,
