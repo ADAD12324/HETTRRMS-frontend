@@ -99,11 +99,11 @@ const UserProfile = () => {
         age: data.age,
         gender: data.gender,
       });
-      Swal.fire({
-        icon: 'success',
-        title: 'User Details Updated',
-        text: 'Your user details have been updated successfully.',
-      });
+Swal.fire({
+      icon: 'success',
+      title: 'User Details Updated',
+      text: 'Your user details have been updated successfully.',
+    });
       setIsEditFormOpen(false); // Close the edit form
     } catch (error) {
       console.error(error);
@@ -273,26 +273,25 @@ const UserProfile = () => {
   <form className="formedituser" onSubmit={handleEditFormSubmit}>
     <h2>Update Information</h2><div style={{marginTop:'15px'}}></div>
     <input
-      className='editfn'
+    className='editfn'
       type="text"
       value={editUserData.firstName}
-      onChange={(e) => setEditUserData({ ...editUserData, firstName: e.target.value })}
+      onChange={(e) => setEditFirstName(e.target.value)}
       placeholder="First Name"
       required
-    />
-    <div style={{marginTop:'10px'}}></div>
+    /><div style={{marginTop:'10px'}}></div>
     <input
-      className='editln'
+    className='editln'
       type="text"
-      value={editUserData.lastName}
-      onChange={(e) => setEditUserData({ ...editUserData, lastName: e.target.value })}
+      value={editLastName}
+      onChange={(e) => setEditLastName(e.target.value)}
       placeholder="Last Name"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editpn'
       type="text"
-      value={editUserData}
+      value={editPhoneNumber}
       onChange={(e) => setEditPhoneNumber(e.target.value)}
       placeholder="Phone Number"
       required
