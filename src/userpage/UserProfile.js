@@ -273,25 +273,26 @@ const UserProfile = () => {
   <form className="formedituser" onSubmit={handleEditFormSubmit}>
     <h2>Update Information</h2><div style={{marginTop:'15px'}}></div>
     <input
-    className='editfn'
+      className='editfn'
       type="text"
       value={editUserData.firstName}
-      onChange={(e) => setEditFirstName(e.target.value)}
+      onChange={(e) => setEditUserData({ ...editUserData, firstName: e.target.value })}
       placeholder="First Name"
       required
-    /><div style={{marginTop:'10px'}}></div>
+    />
+    <div style={{marginTop:'10px'}}></div>
     <input
-    className='editln'
+      className='editln'
       type="text"
-      value={editLastName}
-      onChange={(e) => setEditLastName(e.target.value)}
+      value={editUserData.lastName}
+      onChange={(e) => setEditUserData({ ...editUserData, lastName: e.target.value })}
       placeholder="Last Name"
       required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editpn'
       type="text"
-      value={editPhoneNumber}
+      value={editUserData}
       onChange={(e) => setEditPhoneNumber(e.target.value)}
       placeholder="Phone Number"
       required
