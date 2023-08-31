@@ -42,6 +42,44 @@ const [editGender, setEditGender] = useState('');
     age: '',
     gender: '',
   });
+
+  const [userDetails, setUserDetails] = useState({
+    username: '',
+    firstName: '',
+    lastName: '',
+    userId: '',
+  });
+
+  useEffect(() => {
+    // Fetch user details from sessionStorage
+    const username = sessionStorage.getItem('username');
+    const firstName = sessionStorage.getItem('firstname');
+    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const userId = sessionStorage.getItem('userId');
+    const email= sessionStorage.getItem('email');
+    const phoneNumber = sessionStorage.getItem('phoneNumber');
+    const birthdate = sessionStorage.getItem('birthdate');
+    const age = sessionStorage.getItem('age');
+    const gender = sessionStorage.getItem('gender');
+    const userImage = sessionStorage.getItem('userImage');
+    // Update state with user details
+    setUserDetails({
+      username,
+      firstName,
+      lastName,
+      userId,
+      email,
+      phoneNumber,
+      birthdate: new Date(birthdate).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      }),
+      age,
+      gender,
+      userImage,
+    });
+  }, []);
   const handleFileInputChange = (event) => {
     setSelectedFile(event.target.files[0]);
   }
@@ -101,10 +139,11 @@ const [editGender, setEditGender] = useState('');
         }),
       });
   
+  
       if (!response.ok) {
         throw new Error('Failed to update user');
       }
-  
+      
       // Update the user information
       setUserDetails({
         ...userDetails,
@@ -116,13 +155,14 @@ const [editGender, setEditGender] = useState('');
         age: editUserData.age,
         gender: editUserData.gender,
       });
-  
-Swal.fire({
-      icon: 'success',
-      title: 'User Details Updated',
-      text: 'Your user details have been updated successfully.',
-    });
-      setIsEditFormOpen(false); // Close the edit form
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'User Details Updated',
+        text: 'Your user details have been updated successfully.',
+      });
+      setIsEditFormOpen(false); 
+      
     } catch (error) {
       console.error(error);
       // Handle error appropriately
@@ -181,43 +221,7 @@ Swal.fire({
   
 
   
-  const [userDetails, setUserDetails] = useState({
-    username: '',
-    firstName: '',
-    lastName: '',
-    userId: '',
-  });
-
-  useEffect(() => {
-    // Fetch user details from sessionStorage
-    const username = sessionStorage.getItem('username');
-    const firstName = sessionStorage.getItem('firstname');
-    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
-    const userId = sessionStorage.getItem('userId');
-    const email= sessionStorage.getItem('email');
-    const phoneNumber = sessionStorage.getItem('phoneNumber');
-    const birthdate = sessionStorage.getItem('birthdate');
-    const age = sessionStorage.getItem('age');
-    const gender = sessionStorage.getItem('gender');
-    const userImage = sessionStorage.getItem('userImage');
-    // Update state with user details
-    setUserDetails({
-      username,
-      firstName,
-      lastName,
-      userId,
-      email,
-      phoneNumber,
-      birthdate: new Date(birthdate).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      }),
-      age,
-      gender,
-      userImage,
-    });
-  }, []);
+  
 
   const handleSettingsClick = () => {
     setIsSettingsDropdownOpen(!isSettingsDropdownOpen);
