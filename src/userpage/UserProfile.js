@@ -85,37 +85,38 @@ const [editGender, setEditGender] = useState('');
   }, [userDetails]);
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
       const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName: editFirstName,
-          lastName: editLastName,
-          email: editEmail,
-          phoneNumber: editPhoneNumber,
-          birthdate: editBirthdate,
-          age: editAge,
-          gender: editGender,
+          firstName: editUserData.firstName,
+          lastName: editUserData.lastName,
+          email: editUserData.email,
+          phoneNumber: editUserData.phoneNumber,
+          birthdate: editUserData.birthdate,
+          age: editUserData.age,
+          gender: editUserData.gender,
         }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Failed to update user');
       }
-
+  
       // Update the user information
       setUserDetails({
         ...userDetails,
-        firstName: editFirstName,
-        lastName: editLastName,
-        email: editEmail,
-        phoneNumber: editPhoneNumber,
-        birthdate: editBirthdate,
-        age: editAge,
-        gender: editGender,
+        firstName: editUserData.firstName,
+        lastName: editUserData.lastName,
+        email: editUserData.email,
+        phoneNumber: editUserData.phoneNumber,
+        birthdate: editUserData.birthdate,
+        age: editUserData.age,
+        gender: editUserData.gender,
       });
+  
 Swal.fire({
       icon: 'success',
       title: 'User Details Updated',
