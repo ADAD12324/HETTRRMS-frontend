@@ -72,6 +72,16 @@ const UserProfile = () => {
       .catch(error => console.error(error));
   }
 
+  useEffect(() => {
+    setEditFirstName(userDetails.firstName);
+    setEditLastName(userDetails.lastName);
+    setEditPhoneNumber(userDetails.phoneNumber);
+    setEditEmail(userDetails.email);
+    setEditBirthdate(userDetails.birthdate);
+    setEditAge(userDetails.age);
+    setEditGender(userDetails.gender);
+  }, [userDetails]);
+
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -79,25 +89,31 @@ const UserProfile = () => {
       const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editUserData),
+        body: JSON.stringify({
+          firstName: editFirstName,
+          lastName: editLastName,
+          email: editEmail,
+          phoneNumber: editPhoneNumber,
+          birthdate: editBirthdate,
+          age: editAge,
+          gender: editGender,
+        }),
       });
 
       if (!response.ok) {
         throw new Error('Failed to update user');
       }
 
-      const data = await response.json();
-
       // Update the user information
       setUserDetails({
         ...userDetails,
-        firstName: data.firstName,
-        lastName: data.lastName,
-        email: data.email,
-        phoneNumber: data.phoneNumber,
-        birthdate: data.birthdate,
-        age: data.age,
-        gender: data.gender,
+        firstName: editFirstName,
+        lastName: editLastName,
+        email: editEmail,
+        phoneNumber: editPhoneNumber,
+        birthdate: editBirthdate,
+        age: editAge,
+        gender: editGender,
       });
 Swal.fire({
       icon: 'success',
@@ -275,8 +291,8 @@ Swal.fire({
     <input
     className='editfn'
       type="text"
-      value={editUserData.firstName}
-      onChange={(e) => setEditFirstName(e.target.value)}
+      value={editFirstName}
+    onChange={(e) => setEditFirstName(e.target.value)}
       placeholder="First Name"
       required
     /><div style={{marginTop:'10px'}}></div>
