@@ -300,7 +300,7 @@ Swal.fire({
     <input
     className='editln'
       type="text"
-      value={editLastName}
+      value={userDetails.lastName}
       onChange={(e) => setEditLastName(e.target.value)}
       placeholder="Last Name"
       required
@@ -308,7 +308,7 @@ Swal.fire({
     <input
     className='editpn'
       type="text"
-      value={editPhoneNumber}
+      value={userDetails.phoneNumber}
       onChange={(e) => setEditPhoneNumber(e.target.value)}
       placeholder="Phone Number"
       required
@@ -316,7 +316,7 @@ Swal.fire({
     <input
     className='editem'
       type="email"
-      value={editEmail}
+      value={userDetails.email}
       onChange={(e) => setEditEmail(e.target.value)}
       placeholder="Email"
       required
@@ -338,14 +338,18 @@ Swal.fire({
       placeholder="Age"
       required
     /><div style={{marginTop:'10px'}}></div>
-    <input
-    className='editgd'
-      type="text"
-      value={editGender}
+    <select
+        className='editgd'
+      value={userDetails.gender}
       onChange={(e) => setEditGender(e.target.value)}
       placeholder="Gender"
       required
-    /><div style={{marginTop:'10px'}}></div>
+        >
+          <option value="">Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select><div style={{marginTop:'10px'}}></div>
     <button className='editsave' type="submit">Save</button>
     <br />
     <button
