@@ -22,12 +22,12 @@ const UserProfile = () => {
   const [isImageFormOpen, setIsImageFormOpen] = useState(false);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
   const [editFirstName, setEditFirstName] = useState('');
-  const [editLastName, setEditLastName] = useState('');
-  const [editPhoneNumber, setEditPhoneNumber] = useState('');
-  const [editEmail, setEditEmail] = useState('');
-  const [editBirthdate, setEditBirthdate] = useState('');
-  const [editAge, setEditAge] = useState('');
-  const [editGender, setEditGender] = useState('');
+const [editLastName, setEditLastName] = useState('');
+const [editPhoneNumber, setEditPhoneNumber] = useState('');
+const [editEmail, setEditEmail] = useState('');
+const [editBirthdate, setEditBirthdate] = useState('');
+const [editAge, setEditAge] = useState('');
+const [editGender, setEditGender] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
   const [currentPassword, setCurrentPassword] = useState('');
@@ -73,15 +73,16 @@ const UserProfile = () => {
   }
 
   useEffect(() => {
-    setEditFirstName(userDetails.firstName);
-    setEditLastName(userDetails.lastName);
-    setEditPhoneNumber(userDetails.phoneNumber);
-    setEditEmail(userDetails.email);
-    setEditBirthdate(userDetails.birthdate);
-    setEditAge(userDetails.age);
-    setEditGender(userDetails.gender);
+    setEditUserData({
+      firstName: userDetails.firstName,
+      lastName: userDetails.lastName,
+      email: userDetails.email,
+      phoneNumber: userDetails.phoneNumber,
+      birthdate: userDetails.birthdate,
+      age: userDetails.age,
+      gender: userDetails.gender,
+    });
   }, [userDetails]);
-
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
 
@@ -291,7 +292,7 @@ Swal.fire({
     <input
     className='editfn'
       type="text"
-      value={editFirstName}
+      value={userDetails.firstName}
     onChange={(e) => setEditFirstName(e.target.value)}
       placeholder="First Name"
       required
