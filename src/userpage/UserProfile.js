@@ -54,14 +54,24 @@ const [editGender, setEditGender] = useState('');
     // Fetch user details from sessionStorage
     const username = sessionStorage.getItem('username');
     const firstName = sessionStorage.getItem('firstname');
-    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const lastName = sessionStorage.getItem('lastname');
     const userId = sessionStorage.getItem('userId');
-    const email= sessionStorage.getItem('email');
+    const email = sessionStorage.getItem('email');
     const phoneNumber = sessionStorage.getItem('phoneNumber');
     const birthdate = sessionStorage.getItem('birthdate');
     const age = sessionStorage.getItem('age');
     const gender = sessionStorage.getItem('gender');
     const userImage = sessionStorage.getItem('userImage');
+  
+    // Initialize edit state variables with user details
+    setEditFirstName(firstName || ''); // Provide a default value in case it's null
+    setEditLastName(lastName || ''); // Provide a default value in case it's null
+    setEditPhoneNumber(phoneNumber || ''); // Provide a default value in case it's null
+    setEditEmail(email || ''); // Provide a default value in case it's null
+    setEditBirthdate(birthdate || ''); // Provide a default value in case it's null
+    setEditAge(age || ''); // Provide a default value in case it's null
+    setEditGender(gender || ''); // Provide a default value in case it's null
+  
     // Update state with user details
     setUserDetails({
       username,
@@ -295,20 +305,20 @@ const [editGender, setEditGender] = useState('');
   <form className="formedituser" onSubmit={handleEditFormSubmit}>
     <h2>Update Information</h2><div style={{marginTop:'15px'}}></div>
     <input
-    className='editfn'
-      type="text"
-      value={userDetails.firstName}
-    onChange={(e) => setEditFirstName(e.target.value)}
-      placeholder="First Name"
-      required
+  className='editfn'
+  type="text"
+  value={editFirstName}
+  onChange={(e) => setEditFirstName(e.target.value)}
+  placeholder="First Name"
+  required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editln'
-      type="text"
-      value={userDetails.lastName}
-      onChange={(e) => setEditLastName(e.target.value)}
-      placeholder="Last Name"
-      required
+    type="text"
+    value={editLastName}
+    onChange={(e) => setEditLastName(e.target.value)}
+    placeholder="Last Name"
+    required
     /><div style={{marginTop:'10px'}}></div>
     <input
     className='editpn'
