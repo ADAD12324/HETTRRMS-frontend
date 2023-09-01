@@ -323,7 +323,7 @@ const [editGender, setEditGender] = useState('');
     <input
     className='editpn'
       type="text"
-      value={userDetails.phoneNumber}
+      value={editPhoneNumber}
       onChange={(e) => setEditPhoneNumber(e.target.value)}
       placeholder="Phone Number"
       required
@@ -331,7 +331,7 @@ const [editGender, setEditGender] = useState('');
     <input
     className='editem'
       type="email"
-      value={userDetails.email}
+      value={editEmail}
       onChange={(e) => setEditEmail(e.target.value)}
       placeholder="Email"
       required
@@ -355,7 +355,7 @@ const [editGender, setEditGender] = useState('');
     /><div style={{marginTop:'10px'}}></div>
     <select
         className='editgd'
-      value={userDetails.gender}
+      value={editGender}
       onChange={(e) => setEditGender(e.target.value)}
       placeholder="Gender"
       required
