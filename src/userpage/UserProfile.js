@@ -48,8 +48,13 @@ const [editGender, setEditGender] = useState('');
     firstName: '',
     lastName: '',
     userId: '',
+    email: '',
+    phoneNumber: '',
+    birthdate: '',
+    age: '',
+    gender: '',
+    userImage: '', // Add this line
   });
-
   useEffect(() => {
     // Fetch user details from sessionStorage
     const username = sessionStorage.getItem('username');
@@ -155,16 +160,16 @@ const [editGender, setEditGender] = useState('');
       }
       
       // Update the user information
-      setUserDetails({
-        ...userDetails,
-        firstName: editUserData.firstName,
-        lastName: editUserData.lastName,
-        email: editUserData.email,
-        phoneNumber: editUserData.phoneNumber,
-        birthdate: editUserData.birthdate,
-        age: editUserData.age,
-        gender: editUserData.gender,
-      });
+setUserDetails({
+  ...userDetails,
+  firstName: editUserData.firstName,
+  lastName: editUserData.lastName,
+  email: editUserData.email,
+  phoneNumber: editUserData.phoneNumber,
+  birthdate: editUserData.birthdate,
+  age: editUserData.age,
+  gender: editUserData.gender,
+});
       
       Swal.fire({
         icon: 'success',
