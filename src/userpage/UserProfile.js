@@ -62,7 +62,7 @@ const [editGender, setEditGender] = useState('');
     const age = sessionStorage.getItem('age');
     const gender = sessionStorage.getItem('gender');
     const userImage = sessionStorage.getItem('userImage');
-  
+    setId(userId);
     // Initialize edit state variables with user details
     setEditFirstName(firstName || ''); // Provide a default value in case it's null
     setEditLastName(lastName || ''); // Provide a default value in case it's null
