@@ -9,7 +9,7 @@ const Proof = () => {
   const [proofs, setProofs] = useState([]);
 
   useEffect(() => {
-    const userId = localStorage.getItem("userId");
+    const userId = sessionStorage.getItem("userId");
     axios
       .get(`https://hettrrms-server.onrender.com/api/paymentproof/${userId}`)
       .then((response) => setProofs(response.data.proofs))
