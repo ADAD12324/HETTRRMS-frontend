@@ -127,13 +127,13 @@ const [editGender, setEditGender] = useState('');
 
   useEffect(() => {
     setEditUserData({
-      firstName: userDetails.firstName,
-      lastName: userDetails.lastName,
-      email: userDetails.email,
-      phoneNumber: userDetails.phoneNumber,
-      birthdate: userDetails.birthdate,
-      age: userDetails.age,
-      gender: userDetails.gender,
+      firstName: userDetails.firstName || '',
+      lastName: userDetails.lastName || '',
+      email: userDetails.email || '',
+      phoneNumber: userDetails.phoneNumber || '',
+      birthdate: userDetails.birthdate || '',
+      age: userDetails.age || '',
+      gender: userDetails.gender || '',
     });
   }, [userDetails]);
   const handleEditFormSubmit = async (event) => {
@@ -160,16 +160,16 @@ const [editGender, setEditGender] = useState('');
       }
       
       // Update the user information
-setUserDetails({
-  ...userDetails,
-  firstName: editUserData.firstName,
-  lastName: editUserData.lastName,
-  email: editUserData.email,
-  phoneNumber: editUserData.phoneNumber,
-  birthdate: editUserData.birthdate,
-  age: editUserData.age,
-  gender: editUserData.gender,
-});
+      setUserDetails({
+        ...userDetails,
+        firstName: editUserData.firstName,
+        lastName: editUserData.lastName,
+        email: editUserData.email,
+        phoneNumber: editUserData.phoneNumber,
+        birthdate: editUserData.birthdate,
+        age: editUserData.age,
+        gender: editUserData.gender,
+      });
       
       Swal.fire({
         icon: 'success',
