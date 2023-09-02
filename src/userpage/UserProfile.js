@@ -99,32 +99,51 @@ const [editGender, setEditGender] = useState('');
     setSelectedFile(event.target.files[0]);
   }
 
-  const handleImageFormSubmit = (event) => {
+  const handleImageFormSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(); 
+    
+    if (!selectedFile) {
+      // Handle case when no file is selected
+      console.error('No file selected');
+      return;
+    }
+  
+    const formData = new FormData();
     formData.append('userImage', selectedFile);
-
-    const requestOptions = {
-      method: 'PUT',
-      body: formData,
-      credentials: 'include'
-    };
-
-    fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, requestOptions)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to update user image');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setUserImageUrl(data.userImageUrl);
-        setSelectedFile(null);
-        setIsImageFormOpen(false);
-      })
-      .catch(error => console.error(error));
-  }
-
+  
+    try {
+      const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}/image`, {
+        method: 'PUT',
+        body: formData,
+        credentials: 'include', // Ensure you send cookies with the request if needed
+      });
+  
+      if (!response.ok) {
+        throw new Error('Failed to update user image');
+      }
+  
+      const data = await response.json();
+      setUserImageUrl(data.userImageUrl);
+      setSelectedFile(null);
+      setIsImageFormOpen(false);
+  
+      // Display a success message to the user
+      Swal.fire({
+        icon: 'success',
+        title: 'User Image Updated',
+        text: 'Your user image has been updated successfully.',
+      });
+    } catch (error) {
+      console.error(error);
+      // Handle error and show an error message to the user
+      Swal.fire({
+        icon: 'error',
+        title: 'Image Update Failed',
+        text: 'Failed to update your user image. Please try again.',
+      });
+    }
+  };
+  
   useEffect(() => {
     setEditUserData({
       firstName: userDetails.firstName || '',
