@@ -19,7 +19,7 @@ const Booking = () => {
   };
 
   useEffect(() => { 
-    const userId = localStorage.getItem('userId');
+    const userId = sessionStorage.getItem('userId');
     axios.get(`https://hettrrms-server.onrender.com/api/bookings/${userId}`)
       .then(response => setBookings(response.data.bookings))
       .catch(error => console.error(error));
