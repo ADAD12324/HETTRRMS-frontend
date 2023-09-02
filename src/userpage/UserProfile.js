@@ -131,7 +131,7 @@ const [editGender, setEditGender] = useState('');
       Swal.fire({
         icon: 'success',
         title: 'User Image Updated',
-        text: 'Your user image has been updated successfully.',
+        text: 'Your user image has been updated successfully. Please re-login to see tha updated profile picture.',
       });
     } catch (error) {
       console.error(error);
