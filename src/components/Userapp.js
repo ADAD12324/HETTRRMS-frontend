@@ -171,7 +171,7 @@ export default function Userapp() {
     // Fetch user details from sessionStorage
     const username = sessionStorage.getItem('username');
     const firstName = sessionStorage.getItem('firstname');
-    const lastName = sessionStorage.getItem('lastname'); // Make sure you're setting "lastname" in the backend
+    const lastName = sessionStorage.getItem('lastname'); 
     const userId = sessionStorage.getItem('userId');
     const email= sessionStorage.getItem('email');
     const phoneNumber = sessionStorage.getItem('phoneNumber');

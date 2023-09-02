@@ -155,7 +155,7 @@ const [editGender, setEditGender] = useState('');
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updateUserDetails),
       });
-  
+      
   
       if (!response.ok) {
         throw new Error('Failed to update user');
@@ -176,7 +176,7 @@ const [editGender, setEditGender] = useState('');
       Swal.fire({
         icon: 'success',
         title: 'User Details Updated',
-        text: 'Your user details have been updated successfully.',
+        text: 'Your user details have been updated successfully. Please re-login to see the updated details.',
       });
       setIsEditFormOpen(false); 
       
