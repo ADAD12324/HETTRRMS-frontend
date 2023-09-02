@@ -139,19 +139,21 @@ const [editGender, setEditGender] = useState('');
   const handleEditFormSubmit = async (event) => {
     event.preventDefault();
   
+    const updateUserDetails = {
+      firstName: editFirstName,
+      lastName: editLastName,
+      email: editEmail,
+      phoneNumber: editPhoneNumber,
+      birthdate: editBirthdate,
+      age: editAge,
+      gender: editGender,
+    };
+    
     try {
       const response = await fetch(`https://hettrrms-server.onrender.com/api/users/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          firstName: editUserData.firstName,
-          lastName: editUserData.lastName,
-          email: editUserData.email,
-          phoneNumber: editUserData.phoneNumber,
-          birthdate: editUserData.birthdate,
-          age: editUserData.age,
-          gender: editUserData.gender,
-        }),
+        body: JSON.stringify(updateUserDetails),
       });
   
   
