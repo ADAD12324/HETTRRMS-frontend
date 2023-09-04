@@ -126,8 +126,7 @@ const Login = () => {
             />
           </div>
           <button className='logsubmit' type="submit" disabled={loading}>{loading ? (
-              <BallTriangle
-            style={{position:'relative', left:'50%'}}
+             <div style={{position:'relative', left:'50%'}}> <BallTriangle
               height={30}
               width={30}
               radius={5}
@@ -136,7 +135,7 @@ const Login = () => {
               wrapperClass={{}}
               wrapperStyle=""
               visible={true}
-            />
+            /></div>
             ) : (
               'Log in'
             )}</button>
