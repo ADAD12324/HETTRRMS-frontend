@@ -114,17 +114,19 @@ const [editGender, setEditGender] = useState('');
         throw new Error('Failed to update user image');
       }
   
-      const data = await response.json();
-      setUserImage(data.userImage); // Update the user image in the state
-      setSelectedFile(null);
-      setIsImageFormOpen(false);
-  
       // Display a success message to the user
       Swal.fire({
         icon: 'success',
         title: 'User Image Updated',
         text: 'Your user image has been updated successfully. Please re-login to see the updated profile picture.',
       });
+  
+      // Clear the selected file and close the form
+      setSelectedFile(null);
+      setIsImageFormOpen(false);
+  
+      // Reload user details to update the displayed image
+      // You may need to call a function to fetch updated user details here.
     } catch (error) {
       console.error(error);
       // Handle error and show an error message to the user
@@ -135,6 +137,7 @@ const [editGender, setEditGender] = useState('');
       });
     }
   };
+  
   
   
   useEffect(() => {
