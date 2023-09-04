@@ -127,8 +127,8 @@ const Login = () => {
           </div>
           <button className='logsubmit' type="submit" disabled={loading}>{loading ? (
               <BallTriangle
-              height={100}
-              width={100}
+              height={30}
+              width={30}
               radius={5}
               color="#4fa94d"
               ariaLabel="ball-triangle-loading"
