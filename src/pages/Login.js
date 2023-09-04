@@ -126,7 +126,7 @@ const Login = () => {
             />
           </div>
           <button className='logsubmit' type="submit" disabled={loading}>{loading ? (
-             <div style={{position:'relative', left:'42%'}}> <BallTriangle
+             <div style={{position:'relative', left:'40%'}}> <BallTriangle
               height={30}
               width={30}
               radius={5}
