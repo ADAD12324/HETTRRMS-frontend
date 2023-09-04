@@ -8,23 +8,25 @@ import Footer from '../components/Footer';
 import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-
+import Loader from 'react-loader-spinner'; 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const validateLoginForm = require("./validateLoginForm");
   
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    setLoading(true);
     // Validate the form inputs
     const validationErrors = validateLoginForm(username, password);
 
     if (validationErrors.length > 0) {
       setErrors(validationErrors);
+      setLoading(false);
       return;
     }
 
@@ -58,6 +60,9 @@ const Login = () => {
     } catch (error) {
       console.log(error);
       swal("Failed to login, Please try again.", "", "error");
+    }
+    finally {
+      setLoading(false); 
     }
   };
 
@@ -120,7 +125,11 @@ const Login = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </div>
-          <button className='logsubmit' type="submit">Log in</button>
+          <button className='logsubmit' type="submit" disabled={loading}>{loading ? (
+              <Loader type="ThreeDots" color="#fff" height={15} width={80} /> 
+            ) : (
+              'Log in'
+            )}</button>
           <Link className="regbtn" to="/Register">Sign Up?</Link>
           <Link className="forgot-password-link" to="/forgot-password">Forgot Password?</Link>
         
