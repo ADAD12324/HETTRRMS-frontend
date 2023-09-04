@@ -8,14 +8,23 @@ import Footer from '../components/Footer';
 import swal from 'sweetalert';
 import "../css/Login.css";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import Loader from 'react-loader-spinner'; 
+import {BallTriangle} from 'react-loader-spinner'; 
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+<BallTriangle
+  height={100}
+  width={100}
+  radius={5}
+  color="#4fa94d"
+  ariaLabel="ball-triangle-loading"
+  wrapperClass={{}}
+  wrapperStyle=""
+  visible={true}
+/>
   const validateLoginForm = require("./validateLoginForm");
   
   const handleFormSubmit = async (event) => {
