@@ -93,7 +93,7 @@ const [editGender, setEditGender] = useState('');
 
   const handleImageFormSubmit = async (event) => {
     event.preventDefault();
-    
+  
     if (!selectedFile) {
       // Handle case when no file is selected
       console.error('No file selected');
@@ -115,7 +115,7 @@ const [editGender, setEditGender] = useState('');
       }
   
       const data = await response.json();
-      setUserImage(data.userImage);
+      setUserImage(data.userImage); // Update the user image in the state
       setSelectedFile(null);
       setIsImageFormOpen(false);
   
@@ -123,7 +123,7 @@ const [editGender, setEditGender] = useState('');
       Swal.fire({
         icon: 'success',
         title: 'User Image Updated',
-        text: 'Your user image has been updated successfully. Please re-login to see tha updated profile picture.',
+        text: 'Your user image has been updated successfully. Please re-login to see the updated profile picture.',
       });
     } catch (error) {
       console.error(error);
@@ -135,6 +135,7 @@ const [editGender, setEditGender] = useState('');
       });
     }
   };
+  
   
   useEffect(() => {
     setEditUserData({
@@ -247,7 +248,13 @@ const [editGender, setEditGender] = useState('');
   
   
   
-
+  const setUserImage = (newImage) => {
+    setUserDetails({
+      ...userDetails,
+      userImage: newImage,
+    });
+  };
+  
   
   
 
