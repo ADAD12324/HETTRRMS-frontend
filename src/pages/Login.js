@@ -100,7 +100,7 @@ const Login = () => {
           <div className="login1">Login</div>
           {errors.length > 0 && (
             <ul>
-              <ReportProblemIcon style={{ color: "red", position: 'relative', left: '70px' }} />
+              <ReportProblemIcon style={{ color: "red", position: 'relative', left: '95px' }} />
               {errors.map((error) => (
                 <li style={{ color: "red" }} key={error}>{error}</li>
               ))}
