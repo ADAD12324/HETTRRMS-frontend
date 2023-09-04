@@ -10,14 +10,6 @@ import Loading from '../components/Loading';
 
 const UserProfile = () => {
   const [id, setId] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [userImageUrl, setUserImageUrl] = useState('');
-  const [email, setEmail] = useState('');
-  const [phoneNumber, setPhoneNumber] = useState('');
-  const [birthdate, setBirthdate] = useState('');
-  const [age, setAge] = useState('');
-  const [gender, setGender] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
   const [isImageFormOpen, setIsImageFormOpen] = useState(false);
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
@@ -123,7 +115,7 @@ const [editGender, setEditGender] = useState('');
       }
   
       const data = await response.json();
-      setUserImageUrl(data.userImageUrl);
+      setUserImage(data.userImage);
       setSelectedFile(null);
       setIsImageFormOpen(false);
   
