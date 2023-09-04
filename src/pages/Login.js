@@ -15,16 +15,7 @@ const Login = () => {
   const [errors, setErrors] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-<BallTriangle
-  height={100}
-  width={100}
-  radius={5}
-  color="#4fa94d"
-  ariaLabel="ball-triangle-loading"
-  wrapperClass={{}}
-  wrapperStyle=""
-  visible={true}
-/>
+
   const validateLoginForm = require("./validateLoginForm");
   
   const handleFormSubmit = async (event) => {
@@ -135,7 +126,16 @@ const Login = () => {
             />
           </div>
           <button className='logsubmit' type="submit" disabled={loading}>{loading ? (
-              <Loader type="ThreeDots" color="#fff" height={15} width={80} /> 
+              <BallTriangle
+              height={100}
+              width={100}
+              radius={5}
+              color="#4fa94d"
+              ariaLabel="ball-triangle-loading"
+              wrapperClass={{}}
+              wrapperStyle=""
+              visible={true}
+            />
             ) : (
               'Log in'
             )}</button>
