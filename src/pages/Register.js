@@ -113,7 +113,7 @@ const Register = () => {
   return (
     <div>
       <Navbar />
-    <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
       <label>
         First Name:
         {errors.firstName && <span style={{color:"red"}} className="error">{errors.firstName}</span>}
@@ -226,25 +226,25 @@ const Register = () => {
         />
       </label>
       <label>
-        Valid ID:
-        {errors.idImage && <span style={{color:"red"}} className="error">{errors.idImage}</span>}
-        <input
-          type="file"
-          className="id"
-          accept="image/*"
-          onChange={(event) => setIdImage(event.target.files[0])}
-        />
-      </label>
-      <label>
-        Upload Profile Picture:
-        {errors.userImage && <span style={{color:"red"}} className="error">{errors.userImage}</span>}
-        <input
-          type="file"
-          className="profpic"
-          accept="image/*"
-          onChange={(event) => setUserImage(event.target.files[0])}
-        />
-      </label>
+    Valid ID:
+    {errors.idImage && <span style={{color:"red"}} className="error">{errors.idImage}</span>}
+    <input
+      type="file"
+      className="id"
+      accept="image/*"
+      onChange={(event) => setIdImage(event.target.files[0])}
+    />
+  </label>
+  <label>
+    Upload Profile Picture:
+    {errors.userImage && <span style={{color:"red"}} className="error">{errors.userImage}</span>}
+    <input
+      type="file"
+      className="profpic"
+      accept="image/*"
+      onChange={(event) => setUserImage(event.target.files[0])}
+    />
+  </label>
       <button className='regbut' type="submit">Register</button>
     </form>
     <Footer />
