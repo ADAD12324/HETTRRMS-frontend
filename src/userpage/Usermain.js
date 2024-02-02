@@ -41,7 +41,7 @@ const Usermain = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get('https://hettrrms-server.onrender.com/api/packages')
+    axios.get('/api/packages')
       .then((response) => {
         setPackages(response.data);
       })
@@ -51,7 +51,7 @@ const Usermain = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('https://hettrrms-server.onrender.com/api/national')
+    axios.get('/api/national')
       .then((response) => {
         setNational(response.data);
       })
@@ -61,7 +61,7 @@ const Usermain = () => {
   }, []);
 
   useEffect(() => {
-    axios.get('https://hettrrms-server.onrender.com/api/international')
+    axios.get('/api/international')
       .then((response) => {
         setInternational(response.data);
       })
@@ -116,7 +116,7 @@ const Usermain = () => {
 
  
     
-  const img1 = 'https://hettrrms-server.onrender.com/images/banner.jpg';
+  const img1 = '/images/banner.jpg';
   const [searchTerm, setSearchTerm] = useState('');
   const filteredPackages = packages.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));
   const filteredNational = national.filter(pkg => pkg.name.toLowerCase().includes(searchTerm.toLowerCase()));

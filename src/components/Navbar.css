@@ -49,10 +49,9 @@ body{
     }
     
     .navbar_logo{
-      width: 80px;
+      width: 250px;
       display: flex;
       margin-bottom: 8px;
-      border-radius: 50%;
       margin-left: 10px;
       overflow: hidden;
     }

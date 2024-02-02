@@ -119,7 +119,7 @@ export default function Userapp() {
   useEffect(() => {
     const userId = sessionStorage.getItem('userId');
     axios
-      .get(`https://hettrrms-server.onrender.com/api/notifications/${userId}`)
+      .get(`/api/notifications/${userId}`)
       .then((response) => {
         const updatedNotifications = response.data.map((notification) => {
           const readStatus = sessionStorage.getItem(`read_${notification.id}`);
@@ -197,7 +197,7 @@ export default function Userapp() {
  
 
   const handleLogout = () => {
-    axios.get('https://hettrrms-server.onrender.com/api/logout')
+    axios.get('/api/logout')
       .then(() => {
         localStorage.removeItem('userId');
         navigate('/');

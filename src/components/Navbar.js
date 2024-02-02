@@ -13,7 +13,6 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import HomeIcon from '@mui/icons-material/Home';
@@ -21,12 +20,12 @@ import TravelExploreIcon from '@mui/icons-material/TravelExplore';
 import InfoIcon from '@mui/icons-material/Info';
 import CallIcon from '@mui/icons-material/Call';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import config from './config';
+//import config from './config';
 
 
 const drawerWidth = 240;
 
-const backendUrl = config.url;
+//const backendUrl = config.url;
 
 function Navbar(props) {
   const { window } = props;
@@ -35,13 +34,12 @@ function Navbar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  const logo1 = `${backendUrl}/images/hett_logo_noname.png`;
+  ///const logo1 = `${backendUrl}/images/HUman explore.png`;
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-      <img src={logo1} alt="hett_logo_noname" />
-        Human Explore Travel And Tours
-      </Typography>
+     
+      <div>Human Explore Travel and Tours </div>
+      
       <Divider />
       <List>
           <ListItem disablePadding>
@@ -96,7 +94,7 @@ function Navbar(props) {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar component="nav" style={{backgroundColor:"#28282a", fontStyle:"Raleway, sans-serif"}}>
+      <AppBar component="nav" style={{backgroundColor:"#092635", fontStyle:"Raleway, sans-serif"}}>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -109,27 +107,21 @@ function Navbar(props) {
             <MenuIcon />
           </IconButton>
           <div className="navbar_logo">
-            <img src={logo1} alt="hett_logo_noname" />
+          <div>Human Explore Travel and Tours </div>
           </div>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block', fontFamily:'Raleway, sans-serif'} }}
-          >
-          Human Explore Travel And Tours
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'block'} }}>
+        
+          <Box sx={{  display: { xs: 'none', sm: 'block'}, left:'350px', position:'relative', marginLeft:'50px' }}>
            
             <Link to="/" className="btnhomebar" ><Button sx={{ color: '#fff', fontFamily:'Raleway, sans-serif' }}>
                  <HomeIcon sx={{ m: 0.5 }} /> Home
               </Button></Link>
-              <Link to="/Packages" className="btnpackagesbar"><Button sx={{ color: '#fff', fontFamily:'Raleway, sans-serif' }}>
+              <Link to="/Packages" className="btnpackagesbar"><Button sx={{  color: '#fff', fontFamily:'Raleway, sans-serif' }}>
                  <TravelExploreIcon sx={{ m: 0.5 }} /> Packages
               </Button></Link>
-              <Link to="/About" className="btnaboutbar"><Button sx={{ color: '#fff', fontFamily:'Raleway, sans-serif' }}>
+              <Link to="/About" className="btnaboutbar"><Button sx={{color: '#fff', fontFamily:'Raleway, sans-serif' }}>
                 <InfoIcon sx={{ m: 0.5 }} /> About
               </Button></Link>
-              <Link to="/ContactUs" className="btncontactbar"><Button sx={{ color: '#fff', fontFamily:'Raleway, sans-serif' }}>
+              <Link to="/ContactUs" className="btncontactbar"><Button sx={{  color: '#fff', fontFamily:'Raleway, sans-serif' }}>
               <CallIcon sx={{ m: 0.5 }} /> Contact Us
               </Button></Link>
               <Link to="/Login" className="btnlogin"><Button sx={{ color: '#fff', fontFamily:'Raleway, sans-serif' }}>

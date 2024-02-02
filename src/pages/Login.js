@@ -31,7 +31,7 @@ const Login = () => {
     }
 
     try {
-      const response = await axios.post("https://hettrrms-server.onrender.com/api/login", { username, password });
+      const response = await axios.post("/api/login", { username, password });
 
       // Check if login was successful
       if (response.data.error) {
@@ -86,7 +86,7 @@ const Login = () => {
     });
   };
   
-  const videoUrl='https://hettrrms-server.onrender.com/images/ulol.mp4';
+  const videoUrl='/images/ulol.mp4';
 
   return (
     <div className="login-page">

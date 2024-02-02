@@ -251,13 +251,7 @@ const [editGender, setEditGender] = useState('');
   
   
   
-  const setUserImage = (newImage) => {
-    setUserDetails({
-      ...userDetails,
-      userImage: newImage,
-    });
-  };
-  
+ 
   
   
 

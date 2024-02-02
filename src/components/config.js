@@ -1,5 +1,5 @@
 const config = {
-    url: 'https://hettrrms-server.onrender.com',
+    url: 'http://localhost:3000',
   };
   
   export default config;
